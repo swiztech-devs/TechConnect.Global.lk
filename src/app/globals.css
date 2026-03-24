@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Custom Tailwind Styles ===== */
+
+/* Custom color variables for reference (optional, can use Tailwind config) */
+:root {
+  --background: theme('colors.white'); /* light bg */
+  --foreground: theme('colors.gray.900'); /* light text */
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: theme('colors.gray.900'); /* dark bg */
+    --foreground: theme('colors.gray.100'); /* dark text */
+  }
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* Apply Tailwind classes via @apply */
+html {
+  @apply h-full max-w-full overflow-x-hidden;
+}
+
+body {
+  @apply min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)] font-sans antialiased;
+}
+
+/* Box sizing and reset */
+* {
+  @apply box-border m-0 p-0;
+}
+
+/* Anchor tags */
+a {
+  @apply text-inherit no-underline;
+}
