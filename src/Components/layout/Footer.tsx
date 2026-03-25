@@ -37,8 +37,9 @@ export function Footer() {
             </div>
             <div className="shrink-0 group">
               <Link href="Pages/Contact">
-                <Button className="h-20 px-12 bg-white text-[#020314] hover:bg-[#4A89C8] hover:text-white rounded-full text-xl font-black uppercase tracking-tighter transition-all shadow-[0_0_50px_rgba(255,255,255,0.1)] group-hover:shadow-[#4A89C8]/40 border-none">
-                  Initialize Now <ArrowRight className="ml-3 w-6 h-6" />
+                {/* FIXED BUTTON: Changed bg from white to brand blue for visibility */}
+                <Button className="h-20 px-12 bg-[#2B2E83] text-white hover:bg-white hover:text-[#020314] rounded-full text-xl font-black uppercase tracking-tighter transition-all shadow-[0_0_50px_rgba(43,46,131,0.3)] group-hover:shadow-white/10 border border-white/10">
+                  Initialize Now <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
             </div>
