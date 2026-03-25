@@ -1,17 +1,49 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
-    "./src/app/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}", // This covers everything in src
+    "./Components/**/*.{js,ts,jsx,tsx}", // Added this to be safe based on your imports
   ],
   theme: {
     extend: {
       colors: {
-        primary: "#2B2E83",
-        secondary: "#4A89C8",
-        accent: "#FBBF24",
+        primary: '#2B2E83',
+        secondary: '#4A89C8',
+        accent: '#FBBF24',
+        background: '#F8FAFC',
+        surface: '#0F1629',
       },
+      fontFamily: {
+        heading: ['Poppins', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+      },
+      animation: {
+        'float': 'float 6s ease-in-out infinite',
+        'float-delayed': 'float 6s ease-in-out 3s infinite',
+        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+        'spin-slow': 'spin-slow 20s linear infinite', // Changed to match your custom keyframe if needed
+        'marquee': 'marquee 30s linear infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        'pulse-glow': {
+          '0%, 100%': { opacity: '0.5', transform: 'scale(1)' },
+          '50%': { opacity: '1', transform: 'scale(1.1)' },
+        },
+        'spin-slow': {
+          'from': { transform: 'rotate(0deg)' },
+          'to': { transform: 'rotate(360deg)' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        }
+      }
     },
   },
   plugins: [],
-};
+}

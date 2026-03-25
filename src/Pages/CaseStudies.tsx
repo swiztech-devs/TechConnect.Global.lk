@@ -1,0 +1,149 @@
+"use client";
+
+import React from 'react';
+import { motion, Variants } from 'framer-motion';
+import { ExternalLink, ArrowRight } from "lucide-react";
+
+const PROJECTS = [
+  {
+    title: "Medi Connect Solutions",
+    category: "Hospital ERP & HIS",
+    description: "A comprehensive healthcare ecosystem managing patient flow and medical records at scale.",
+    // IMAGE: Add to public/images/medi-connect.jpg
+    image: "/img/project-1.jpeg", 
+    tags: ["Next.js", "Cloud", "ERP"]
+  },
+  {
+    title: "Global Finance Hub",
+    category: "Master Budgeting System",
+    description: "High-precision financial forecasting and real-time budget tracking for enterprise clients.",
+    // IMAGE: Add to public/images/finance-hub.jpg
+    image: "/img/project-2.jpeg",
+    tags: ["React", "Analytics", "Security"]
+  },
+  {
+    title: "Nexus IoT Framework",
+    category: "Industrial Automation",
+    description: "Edge-computing infrastructure for real-time monitoring of global manufacturing assets.",
+    // IMAGE: Add to public/images/iot-framework.jpg
+    image: "/img/project-3.jpeg",
+    tags: ["IoT", "Node.js", "Edge"]
+  }
+];
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 }
+  }
+};
+
+const projectVariants: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.8, ease: [0.25, 1, 0.5, 1] } 
+  }
+};
+
+export function CaseStudies() {
+  return (
+    <section className="relative py-32 bg-[#020314] overflow-hidden">
+      {/* Visual Divider */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#4A89C8]/30 to-transparent" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <header className="mb-20 flex flex-col md:flex-row justify-between items-end gap-6">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="space-y-4"
+          >
+            <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tighter">
+              Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4A89C8] to-white">scale.</span>
+            </h2>
+            <p className="text-slate-400 text-lg max-w-md font-light leading-relaxed">
+              Proven digital infrastructures deployed for industry-leading organizations.
+            </p>
+          </motion.div>
+          
+          <motion.button 
+            whileHover={{ x: 10 }}
+            className="flex items-center gap-4 text-white font-bold tracking-[0.2em] uppercase text-[10px] border-b border-[#4A89C8]/50 pb-2 transition-all group"
+          >
+            Explore Portfolio <ArrowRight className="w-4 h-4 text-[#4A89C8] group-hover:translate-x-2 transition-transform" />
+          </motion.button>
+        </header>
+
+        {/* 3-COLUMN PROJECTS GRID */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {PROJECTS.map((project, i) => (
+            <motion.div
+              key={i}
+              variants={projectVariants}
+              className="group relative"
+            >
+              {/* --- IMAGE CONTAINER START --- */}
+              {/* NOTE: Recommended aspect ratio is 16:11. Place files in /public/images/ */}
+              <div className="relative aspect-[16/11] overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 shadow-2xl">
+                <motion.div 
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.6 }}
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ 
+                    backgroundImage: `url(${project.image})`,
+                    backgroundColor: '#1a1b26' // Fallback color while loading
+                  }}
+                >
+                  {/* Subtle tint for text contrast */}
+                  <div className="absolute inset-0 bg-[#020314]/50 group-hover:bg-[#020314]/20 transition-colors duration-500" />
+                </motion.div>
+
+                {/* Glass Tags */}
+                <div className="absolute top-6 left-6 flex flex-wrap gap-2">
+                  {project.tags.map(tag => (
+                    <span key={tag} className="px-3 py-1 bg-[#020314]/60 backdrop-blur-xl border border-white/10 rounded-full text-[9px] text-blue-100 font-black tracking-widest uppercase">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              {/* --- IMAGE CONTAINER END --- */}
+
+              <div className="mt-8 space-y-3 px-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-[#4A89C8] font-bold text-[10px] uppercase tracking-[0.4em]">
+                    {project.category}
+                  </span>
+                  <div className="p-2 rounded-full bg-white/5 group-hover:bg-[#4A89C8]/20 transition-colors">
+                    <ExternalLink className="w-4 h-4 text-white/40 group-hover:text-white transition-all" />
+                  </div>
+                </div>
+                
+                <h3 className="text-2xl font-bold text-white group-hover:text-[#4A89C8] transition-colors tracking-tight leading-tight">
+                  {project.title}
+                </h3>
+                
+                <p className="text-slate-400 font-light text-sm leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">
+                  {project.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Ambient Radial Lighting */}
+      <div className="absolute -bottom-40 -left-20 w-[600px] h-[600px] bg-[#2B2E83]/10 blur-[150px] rounded-full pointer-events-none" />
+    </section>
+  );
+}
