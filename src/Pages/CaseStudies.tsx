@@ -9,7 +9,6 @@ const PROJECTS = [
     title: "Medi Connect Solutions",
     category: "Hospital ERP & HIS",
     description: "A comprehensive healthcare ecosystem managing patient flow and medical records at scale.",
-    // IMAGE: Add to public/images/medi-connect.jpg
     image: "/img/project-1.jpeg", 
     tags: ["Next.js", "Cloud", "ERP"]
   },
@@ -17,7 +16,6 @@ const PROJECTS = [
     title: "Global Finance Hub",
     category: "Master Budgeting System",
     description: "High-precision financial forecasting and real-time budget tracking for enterprise clients.",
-    // IMAGE: Add to public/images/finance-hub.jpg
     image: "/img/project-2.jpeg",
     tags: ["React", "Analytics", "Security"]
   },
@@ -25,7 +23,6 @@ const PROJECTS = [
     title: "Nexus IoT Framework",
     category: "Industrial Automation",
     description: "Edge-computing infrastructure for real-time monitoring of global manufacturing assets.",
-    // IMAGE: Add to public/images/iot-framework.jpg
     image: "/img/project-3.jpeg",
     tags: ["IoT", "Node.js", "Edge"]
   }
