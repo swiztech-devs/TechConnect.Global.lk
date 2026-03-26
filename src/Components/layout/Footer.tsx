@@ -2,51 +2,20 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import { FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa'
-import { ArrowRight, ShieldCheck, Globe, Mail, Phone } from 'lucide-react'
-import { Button } from '@/Components/ui/Button'
+import { ShieldCheck, Globe, Mail, Phone } from 'lucide-react'
 
 export function Footer() {
   return (
-    <footer className="relative bg-[#020314] text-white pt-32 pb-12 overflow-hidden border-t border-white/5">
+    <footer className="relative bg-[#020314] text-white pt-24 pb-12 overflow-hidden border-t border-white/5">
       
-      {/* 1. AMBIENT BACKGROUND GLOWS */}
-      <div className="absolute top-0 left-1/4 w-[600px] h-[300px] bg-[#2B2E83]/10 blur-[120px] rounded-full pointer-events-none" />
+      {/* AMBIENT BACKGROUND GLOWS */}
+      <div className="absolute top-0 left-1/4 w-[600px] h-[300px] bg-[#2B2E83]/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#4A89C8]/5 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
-        {/* 2. FOOTER CTA */}
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative group p-[1px] rounded-[3rem] bg-gradient-to-r from-[#2B2E83]/40 via-white/10 to-[#4A89C8]/40 mb-32 overflow-hidden"
-        >
-          <div className="bg-[#020314]/95 backdrop-blur-3xl rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12">
-            <div className="max-w-xl space-y-6 text-center md:text-left">
-              <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-none">
-                Ready to build <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4A89C8] to-white">the next decade?</span>
-              </h2>
-              <p className="text-slate-400 text-lg font-light max-w-md">
-                Deploy TechConnect Global infrastructures today and lead the future of enterprise intelligence.
-              </p>
-            </div>
-            <div className="shrink-0 group">
-              <Link href="Pages/Contact">
-                {/* FIXED BUTTON: Changed bg from white to brand blue for visibility */}
-                <Button className="h-20 px-12 bg-[#2B2E83] text-white hover:bg-white hover:text-[#020314] rounded-full text-xl font-black uppercase tracking-tighter transition-all shadow-[0_0_50px_rgba(43,46,131,0.3)] group-hover:shadow-white/10 border border-white/10">
-                  Initialize Now <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* 3. MAIN NAVIGATION GRID */}
+        {/* MAIN NAVIGATION GRID */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 mb-24">
           
           {/* Brand Column with Contact Details */}
@@ -66,17 +35,17 @@ export function Footer() {
 
             {/* CONTACT DETAILS AREA */}
             <div className="space-y-4 pt-2">
-              <a href="mailto:info@techconnectglobal.com" className="flex items-center gap-3 text-slate-400 hover:text-[#4A89C8] transition-colors group">
+              <a href="mailto:pm@mediconnect.com.lk" className="flex items-center gap-3 text-slate-400 hover:text-[#4A89C8] transition-colors group">
                 <div className="p-2 rounded-lg bg-white/5 border border-white/10 group-hover:border-[#4A89C8]/50">
                   <Mail className="w-4 h-4" />
                 </div>
-                <span className="text-sm font-medium">info@techconnectglobal.com</span>
+                <span className="text-sm font-medium">pm@mediconnect.com.lk</span>
               </a>
-              <a href="tel:+94112345678" className="flex items-center gap-3 text-slate-400 hover:text-[#4A89C8] transition-colors group">
+              <a href="tel:+94707993375" className="flex items-center gap-3 text-slate-400 hover:text-[#4A89C8] transition-colors group">
                 <div className="p-2 rounded-lg bg-white/5 border border-white/10 group-hover:border-[#4A89C8]/50">
                   <Phone className="w-4 h-4" />
                 </div>
-                <span className="text-sm font-medium">+94 11 234 5678</span>
+                <span className="text-sm font-medium">+94 70 799 3375</span>
               </a>
             </div>
 
@@ -114,7 +83,7 @@ export function Footer() {
           ))}
         </div>
 
-        {/* 4. SYSTEM STATUS & COPYRIGHT */}
+        {/* SYSTEM STATUS & COPYRIGHT */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <p className="text-slate-600 text-[10px] font-bold uppercase tracking-widest">
