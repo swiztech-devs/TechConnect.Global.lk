@@ -4,40 +4,29 @@ import React from 'react';
 import { motion, Variants } from 'framer-motion';
 import { LayoutDashboard, Cpu, Cloud, Code2, ArrowUpRight } from "lucide-react";
 
-/**
- * IMAGE DIMENSION GUIDE:
- * Best Size: 800px x 1000px (Portrait Aspect Ratio)
- * Format: .webp or .jpg (Compressed for web)
- * Style: Dark, abstract, or technical backgrounds work best.
- */
-
 const SERVICES = [
   {
     title: "Core ERP",
     description: "Enterprise resource planning systems built for 2026 global scale.",
     icon: <LayoutDashboard className="w-8 h-8" />,
-    // IMAGE: Add path to abstract data/grid image
     bgImage: "/img/Service-1.png" 
   },
   {
     title: "Edge IoT",
     description: "Ultra-low latency industrial monitoring and smart device orchestration.",
     icon: <Cpu className="w-8 h-8" />,
-    // IMAGE: Add path to circuit/connection image
     bgImage: "/img/Service-2.png" 
   },
   {
     title: "Cloud Native",
     description: "Resilient serverless architectures and high-availability infrastructure.",
     icon: <Cloud className="w-8 h-8" />,
-    // IMAGE: Add path to cloud/network mesh image
     bgImage: "/img/Service-3.png" 
   },
   {
     title: "BPO Solutions",
     description: "Intelligent process outsourcing driven by AI and automated efficiency.",
     icon: <Code2 className="w-8 h-8" />,
-    // IMAGE: Add path to abstract collaborative/AI image
     bgImage: "/img/Service-4.png" 
   }
 ];
