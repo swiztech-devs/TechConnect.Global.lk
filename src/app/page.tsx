@@ -6,8 +6,9 @@ import { TrustBar } from "@/sections/TrustBar";
 import { CompanyOverview } from "@/sections/CompanyOverview";
 import { BentoGrid } from "@/sections/BentoGrid";
 import { Services } from "@/sections/Services";
-import { CaseStudies } from "@/sections/CaseStudies";
-import { Stats } from "@/sections/Stats";
+import { DeploymentPortfolio } from "@/sections/DeploymentPortfolio"; 
+import { Testimonials } from "@/sections/Testimonials";
+import { ValueProposition } from "@/sections/ValueProposition"; 
 import { FinalCTA } from "@/sections/CTA"; 
 
 export default function Page() {
@@ -22,7 +23,6 @@ export default function Page() {
         {/* SECTION BREAK 1: The Glass Border */}
         <section className="border-y border-white/5 bg-white/[0.02] backdrop-blur-sm relative">
           <TrustBar />
-          {/* Bottom Glow Line */}
           <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#4A89C8]/20 to-transparent" />
         </section>
 
@@ -52,27 +52,34 @@ export default function Page() {
            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-[#020314]" />
         </div>
 
-        {/* 5. CASE STUDIES - PROOF OF CONCEPT */}
-        <CaseStudies />
+        {/* 5. DEPLOYMENT PORTFOLIO - PROOF OF CONCEPT (Updated) */}
+        <DeploymentPortfolio />
 
-        {/* SECTION BREAK 5: The "Digital Horizon" */}
-        <div className="relative pt-20 pb-10 flex flex-col items-center">
-          <div className="w-24 h-[1px] bg-[#4A89C8]/40 mb-4" />
-          <div className="text-[10px] uppercase tracking-[0.6em] text-white/20 font-bold">Performance Metrics</div>
+        {/* SECTION BREAK 5: The "Prism" Divider */}
+        <div className="relative h-32 w-full flex items-center justify-center overflow-hidden">
+          <div className="w-[50%] h-[1px] bg-gradient-to-r from-transparent via-[#4A89C8]/30 to-transparent" />
+          <div className="absolute w-[300px] h-[300px] bg-[#4A89C8]/5 blur-[80px] rounded-full" />
         </div>
 
-        {/* 6. STATS - IMPACT DATA */}
-        <Stats />
+        {/* 6. TESTIMONIALS - SOCIAL PROOF */}
+        <Testimonials />
 
-        {/* SECTION BREAK 6: The "Conversion Bridge" 
-            A subtle glow transition to focus the eye on the CTA
-        */}
+        {/* SECTION BREAK 6: The "Verification Bridge" */}
+        <div className="relative pt-20 pb-10 flex flex-col items-center">
+          <div className="w-24 h-[1px] bg-[#4A89C8]/40 mb-4" />
+          <div className="text-[10px] uppercase tracking-[0.6em] text-white/20 font-black">Verified Protocol Data</div>
+        </div>
+
+        {/* 7. VALUE PROPOSITION - IMPACT & SCALE */}
+        <ValueProposition />
+
+        {/* SECTION BREAK 7: The "Conversion Bridge" */}
         <div className="relative h-32 w-full overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-px bg-gradient-to-r from-transparent via-[#4A89C8]/30 to-transparent" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(43,46,131,0.05)_0%,transparent_100%)]" />
         </div>
 
-        {/* 7. FINAL CALL TO ACTION - CONVERSION POINT */}
+        {/* 8. FINAL CALL TO ACTION - CONVERSION POINT */}
         <FinalCTA />
         
       </div>

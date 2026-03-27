@@ -45,7 +45,7 @@ const projectVariants: Variants = {
   }
 };
 
-export function CaseStudies() {
+export function DeploymentPortfolio() {
   return (
     <section className="relative py-32 bg-[#020314] overflow-hidden">
       {/* Visual Divider */}
