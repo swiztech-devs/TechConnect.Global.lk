@@ -23,12 +23,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen flex flex-col bg-background font-body text-slate-800 antialiased">
+        {/* Core UI Components */}
         <PageLoader />
         <ScrollToTop />
         <Navbar />
+        
+        {/* Main Content Area */}
         <div className="flex-grow">
           {children}
         </div>
+        
         <Footer />
       </body>
     </html>

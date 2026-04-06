@@ -3,7 +3,8 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, ChevronRight } from 'lucide-react'
+import { Menu, X, ChevronRight, Mail, Phone, Clock } from 'lucide-react'
+import { FaFacebookF, FaLinkedinIn, FaInstagram, FaXTwitter } from 'react-icons/fa6'
 import { Button } from '../ui/Button'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -26,47 +27,83 @@ export function Navbar() {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Solutions', path: '/solutions' },
-    { name: 'Intelligence', path: '/about' },
-    { name: 'Case Studies', path: '/case-study' },
+    { name: 'Company Overview', path: '/company-overview' },
+    { name: 'Our Services', path: '/services' },
+    { name: 'Our Projects', path: '/projects' },
+    { name: 'Our Clients', path: '/clients' },
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[100] flex justify-center pt-8 px-6 pointer-events-none">
+    <header className="fixed top-0 left-0 right-0 z-[100] flex flex-col items-center pt-6 px-6 pointer-events-none">
+      
+      {/* --- TOP BAR: SOCIALS & CONTACT (Fades out on scroll for focus) --- */}
+      <motion.div
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: isScrolled ? -20 : 0, opacity: isScrolled ? 0 : 1 }}
+        transition={{ duration: 0.4 }}
+        className="w-full max-w-7xl flex justify-between items-center px-8 mb-4 pointer-events-auto"
+      >
+        <div className="flex items-center gap-8">
+          <div className="flex items-center gap-2 group cursor-pointer">
+            <Mail className="w-3.5 h-3.5 text-[#4A89C8]" />
+            <span className="text-[10px] font-bold text-slate-400 group-hover:text-white transition-colors tracking-widest uppercase">pm@mediconnect.com.lk</span>
+          </div>
+          <div className="hidden sm:flex items-center gap-2 group cursor-pointer">
+            <Phone className="w-3.5 h-3.5 text-[#4A89C8]" />
+            <span className="text-[10px] font-bold text-slate-400 group-hover:text-white transition-colors tracking-widest uppercase">+94 70 799 3375</span>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-5">
+          <a href="#" className="p-1.5 rounded-full bg-white/5 text-slate-400 hover:text-[#4A89C8] hover:bg-white/10 transition-all">
+            <FaFacebookF size={12} />
+          </a>
+          <a href="#" className="p-1.5 rounded-full bg-white/5 text-slate-400 hover:text-[#4A89C8] hover:bg-white/10 transition-all">
+            <FaLinkedinIn size={12} />
+          </a>
+          <a href="#" className="p-1.5 rounded-full bg-white/5 text-slate-400 hover:text-[#4A89C8] hover:bg-white/10 transition-all">
+            <FaInstagram size={12} />
+          </a>
+          <a href="#" className="p-1.5 rounded-full bg-white/5 text-slate-400 hover:text-[#4A89C8] hover:bg-white/10 transition-all">
+            <FaXTwitter size={12} />
+          </a>
+        </div>
+      </motion.div>
+
+      {/* --- MAIN NAVIGATION BAR --- */}
       <motion.div
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 200, damping: 25 }}
-        className={`pointer-events-auto w-full max-w-7xl rounded-[2.5rem] transition-all duration-500 border flex items-center ${
+        className={`pointer-events-auto w-full max-w-7xl rounded-[2.5rem] transition-all duration-500 border flex items-center h-20 ${
           isScrolled 
-            ? 'bg-[#020314]/70 backdrop-blur-3xl border-white/10 py-4 px-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]' 
-            : 'bg-transparent border-transparent py-4 px-6'
+            ? 'bg-[#020314]/80 backdrop-blur-3xl border-white/10 px-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] translate-y-[-30px]' 
+            : 'bg-white/5 backdrop-blur-md border-white/10 px-6'
         }`}
       >
-        <div className="flex justify-between items-center w-full">
+        <div className="flex justify-between items-center w-full h-full">
           
-          {/* --- LOGO ONLY SECTION --- */}
-          <Link href="/" className="flex items-center group">
-            <div className="relative h-12 w-auto flex items-center justify-center">
+          {/* --- LOGO SECTION --- */}
+          <Link href="/" className="flex items-center group h-12">
+            <div className="relative h-full w-auto flex items-center justify-center overflow-hidden rounded-xl">
               <img 
                 src="/img/Logo-1.jpeg" 
                 alt="TechConnect Logo" 
-                className="h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300 rounded-xl shadow-2xl"
-                onError={(e) => { e.currentTarget.style.display = 'none'; }} 
+                className="h-full w-auto object-contain group-hover:scale-105 transition-transform duration-300 shadow-2xl"
               />
               <div className="absolute inset-0 bg-[#4A89C8]/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
           </Link>
 
           {/* --- DESKTOP NAVIGATION --- */}
-          <nav className="hidden lg:flex items-center gap-1.5 p-1 bg-white/5 backdrop-blur-md rounded-full border border-white/5">
+          <nav className="hidden lg:flex items-center gap-1 p-1 bg-white/5 rounded-full border border-white/5 h-12">
             {navLinks.map((link) => {
               const isActive = pathname === link.path
               return (
                 <Link
                   key={link.name}
                   href={link.path}
-                  className={`relative px-7 py-2.5 text-[10px] font-black uppercase tracking-[0.25em] transition-all rounded-full overflow-hidden ${
+                  className={`relative px-5 h-full flex items-center text-[9px] font-black uppercase tracking-[0.2em] transition-all rounded-full overflow-hidden ${
                     isActive ? 'text-white' : 'text-slate-400 hover:text-white'
                   }`}
                 >
@@ -84,14 +121,13 @@ export function Navbar() {
           </nav>
 
           {/* --- ACTION BUTTON --- */}
-          <div className="hidden md:flex items-center">
-            <Link href="/contact">
+          <div className="hidden md:flex items-center h-12">
+            <Link href="/contact" className="h-full">
               <Button
                 variant="outline"
-                // Added hover:text-[#020314] to ensure text is visible when bg turns white
-                className="rounded-full px-10 h-12 border-white/10 text-white bg-white/5 hover:bg-white hover:text-[#020314] transition-all text-[10px] font-black uppercase tracking-widest shadow-xl"
+                className="rounded-full px-10 h-full border-white/10 text-white bg-white/5 hover:bg-white hover:text-[#020314] transition-all text-[10px] font-black uppercase tracking-widest shadow-xl"
               >
-                Launch Console
+                Contact Us
               </Button>
             </Link>
           </div>
@@ -126,10 +162,24 @@ export function Navbar() {
                   <ChevronRight size={18} className="text-[#4A89C8] group-hover:translate-x-1 transition-transform" />
                 </Link>
               ))}
+              
+              <div className="mt-4 flex flex-col gap-4 px-5">
+                 <div className="flex items-center gap-3 text-slate-400">
+                    <Mail size={14} className="text-[#4A89C8]" />
+                    <span className="text-[10px] font-bold uppercase tracking-widest">info@techconnect.global</span>
+                 </div>
+                 <div className="flex items-center gap-3 text-slate-400">
+                    <Phone size={14} className="text-[#4A89C8]" />
+                    <span className="text-[10px] font-bold uppercase tracking-widest">+94 70 799 3375</span>
+                 </div>
+              </div>
+
               <div className="mt-6 pt-6 border-t border-white/5">
-                <Button className="w-full rounded-2xl bg-[#2B2E83] hover:bg-white hover:text-[#020314] h-16 text-xs font-black uppercase tracking-widest transition-all">
-                  Initialize Session
-                </Button>
+                <Link href="/contact" className="w-full">
+                  <Button className="w-full rounded-2xl bg-[#2B2E83] hover:bg-white hover:text-[#020314] h-16 text-xs font-black uppercase tracking-widest transition-all">
+                    Contact Us
+                  </Button>
+                </Link>
               </div>
             </div>
           </motion.div>
