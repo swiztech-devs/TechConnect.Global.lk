@@ -32,20 +32,29 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
 }
-/* Custom scrollbar */
+
+/* Custom scrollbar - Optimized for Dark Cinematic Theme */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #020314; /* Matches the dark background of your site */
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(43, 46, 131, 0.2);
+  background: linear-gradient(to bottom, #2B2E83, #4A89C8);
   border-radius: 10px;
+  border: 2px solid #020314; /* Creates padding effect around the thumb */
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(43, 46, 131, 0.5);
+  background: #4A89C8;
 }
+
+/* Firefox Support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #4A89C8 #020314;
+}
+
 @layer utilities {
   .dot-grid {
     background-image: radial-gradient(rgba(43, 46, 131, 0.08) 1px, transparent 1px);

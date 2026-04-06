@@ -60,7 +60,7 @@ export function Footer() {
 
           {/* Nav Links Columns */}
           {[
-            { title: 'Platform', links: ['About', 'Solutions', 'Insights', 'Contact'] },
+            { title: 'Platform', links: ['About', 'Our Services', 'Our Projects', 'Our Clients'] },
             { title: 'Core Tech', links: ['ERP Systems', 'Edge IoT', 'Cloud Native', 'AI Workflows'] },
             { title: 'Company', links: ['Careers', 'Philosophy', 'Press', 'Case Studies'] },
             { title: 'Legal', links: ['Security', 'Privacy', 'Compliance', 'Terms'] },

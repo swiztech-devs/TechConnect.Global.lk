@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, ChevronRight, Mail, Phone, Clock } from 'lucide-react'
+import { Menu, X, ChevronRight, Mail, Phone } from 'lucide-react'
 import { FaFacebookF, FaLinkedinIn, FaInstagram, FaXTwitter } from 'react-icons/fa6'
 import { Button } from '../ui/Button'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -28,7 +28,7 @@ export function Navbar() {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Company Overview', path: '/company-overview' },
-    { name: 'Our Services', path: '/services' },
+    { name: 'Our Services', path: '/service-details' },
     { name: 'Our Projects', path: '/projects' },
     { name: 'Our Clients', path: '/clients' },
   ]
@@ -36,7 +36,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-[100] flex flex-col items-center pt-6 px-6 pointer-events-none">
       
-      {/* --- TOP BAR: SOCIALS & CONTACT (Fades out on scroll for focus) --- */}
+      {/* --- TOP BAR: SOCIALS & CONTACT --- */}
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: isScrolled ? -20 : 0, opacity: isScrolled ? 0 : 1 }}
@@ -46,7 +46,7 @@ export function Navbar() {
         <div className="flex items-center gap-8">
           <div className="flex items-center gap-2 group cursor-pointer">
             <Mail className="w-3.5 h-3.5 text-[#4A89C8]" />
-            <span className="text-[10px] font-bold text-slate-400 group-hover:text-white transition-colors tracking-widest uppercase">pm@mediconnect.com.lk</span>
+            <span className="text-[10px] font-bold text-slate-400 group-hover:text-white transition-colors tracking-widest uppercase">info@techconnect.global</span>
           </div>
           <div className="hidden sm:flex items-center gap-2 group cursor-pointer">
             <Phone className="w-3.5 h-3.5 text-[#4A89C8]" />
@@ -122,7 +122,7 @@ export function Navbar() {
 
           {/* --- ACTION BUTTON --- */}
           <div className="hidden md:flex items-center h-12">
-            <Link href="/contact" className="h-full">
+            <Link href="/contact">
               <Button
                 variant="outline"
                 className="rounded-full px-10 h-full border-white/10 text-white bg-white/5 hover:bg-white hover:text-[#020314] transition-all text-[10px] font-black uppercase tracking-widest shadow-xl"

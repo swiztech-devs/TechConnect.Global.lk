@@ -1,7 +1,7 @@
 'use client'
 
-import React from 'react'
-import { motion, Variants } from 'framer-motion'
+import React, { useEffect, useRef } from 'react'
+import { motion, Variants, useInView, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { 
   ShieldCheck, 
@@ -13,12 +13,32 @@ import {
   Mail
 } from 'lucide-react'
 
+// --- HELPER COMPONENT FOR ANIMATED NUMBERS ---
+function Counter({ value }: { value: number }) {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true })
+  const motionValue = useMotionValue(0)
+  const springValue = useSpring(motionValue, {
+    damping: 30,
+    stiffness: 100,
+  })
+  const rounded = useTransform(springValue, (latest) => Math.round(latest))
+
+  useEffect(() => {
+    if (inView) {
+      motionValue.set(value)
+    }
+  }, [inView, value, motionValue])
+
+  return <span ref={ref}><motion.span>{rounded}</motion.span></span>
+}
+
 // 1. DATA DEFINITIONS
 const STATS = [
-  { label: "Active Clients", value: "40+", icon: Users },
-  { label: "Projects Done", value: "70+", icon: Briefcase },
-  { label: "Team Advisors", value: "10+", icon: ShieldCheck },
-  { label: "Glorious Years", value: "8+", icon: Award },
+  { label: "Active Clients", value: 40, icon: Users },
+  { label: "Projects Done", value: 70, icon: Briefcase },
+  { label: "Team Advisors", value: 10, icon: ShieldCheck },
+  { label: "Glorious Years", value: 8, icon: Award },
 ]
 
 const TECH_STACK = [
@@ -54,7 +74,6 @@ const TEAM_MEMBERS = [
   { name: "Nina Gupta", role: "Web Dev", credentials: "Bsc.SE, React Spec.", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", category: "Engineering" }
 ]
 
-// 2. ANIMATION VARIANTS
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
@@ -77,8 +96,6 @@ const cardVariants: Variants = {
 export default function CompanyOverview() {
   return (
     <section className="relative w-full bg-[#020314] pt-64 pb-32 overflow-hidden">
-      
-      {/* Background Ambience */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#2B2E83]/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#4A89C8]/5 blur-[150px] rounded-full pointer-events-none" />
 
@@ -86,29 +103,18 @@ export default function CompanyOverview() {
         
         {/* --- 1. HERO HEADER --- */}
         <div className="grid lg:grid-cols-2 gap-16 items-start mb-32 max-w-7xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4A89C8] animate-[ping_3s_linear_infinite]" />
               <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">TechConnect Global Pvt Ltd</span>
             </div>
-            
-            {/* FIXED: Added 'pb-2' and changed 'tracking-tighter' to 'tracking-tight' to prevent character cropping */}
             <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-8 text-balance pb-2">
               Architecting the <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4A89C8] to-white italic inline-block px-1">Future of Software.</span>
             </h2>
           </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="space-y-6 pt-4"
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="space-y-6 pt-4">
             <p className="text-xl text-slate-300 font-light leading-relaxed">
               TechConnect Global is a high-performance software engineering collective. We blend disruptive innovation with refined aesthetics to build scalable digital ecosystems.
             </p>
@@ -118,7 +124,7 @@ export default function CompanyOverview() {
           </motion.div>
         </div>
 
-        {/* --- 2. STATS ENGINE --- */}
+        {/* --- 2. STATS ENGINE (Animated Counters) --- */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -133,7 +139,9 @@ export default function CompanyOverview() {
               className="p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 flex flex-col items-center text-center group hover:bg-white/[0.04] transition-colors"
             >
               <stat.icon className="w-5 h-5 text-[#4A89C8] mb-4 opacity-50 group-hover:opacity-100 transition-opacity" />
-              <div className="text-4xl font-bold text-white mb-2 tracking-tighter">{stat.value}</div>
+              <div className="text-4xl font-bold text-white mb-2 tracking-tighter">
+                <Counter value={stat.value} />+
+              </div>
               <div className="text-[9px] font-black uppercase tracking-widest text-slate-500">{stat.label}</div>
             </motion.div>
           ))}
@@ -142,13 +150,7 @@ export default function CompanyOverview() {
         {/* --- 3. VISION & MISSION --- */}
         <div className="grid md:grid-cols-2 gap-8 mb-32 max-w-7xl mx-auto">
           {CORE_PILLARS.map((pillar, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className={`relative p-12 rounded-[2.5rem] border border-white/5 bg-gradient-to-br ${pillar.color} overflow-hidden group shadow-2xl`}
-            >
+            <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className={`relative p-12 rounded-[2.5rem] border border-white/5 bg-gradient-to-br ${pillar.color} overflow-hidden group shadow-2xl`}>
               <pillar.icon className="w-10 h-10 text-white mb-8 group-hover:scale-110 transition-transform" />
               <h3 className="text-3xl font-bold text-white mb-4 tracking-tight">{pillar.title}</h3>
               <p className="text-slate-400 font-light leading-relaxed">{pillar.text}</p>
@@ -163,14 +165,7 @@ export default function CompanyOverview() {
             <h3 className="text-sm font-black uppercase tracking-[0.5em] text-[#4A89C8] mb-4">Our Strength</h3>
             <p className="text-4xl md:text-5xl font-bold text-white tracking-tighter">The Architects Behind the Code</p>
           </div>
-
-          <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-5"
-          >
+          <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-5">
             {TEAM_MEMBERS.map((member, index) => (
               <motion.div key={index} variants={cardVariants} className="group relative">
                 <div className="relative p-[1px] rounded-[1.5rem] bg-gradient-to-b from-white/10 to-transparent overflow-hidden transition-all duration-500 group-hover:shadow-[0_20px_40px_rgba(43,46,131,0.15)]">
@@ -212,19 +207,9 @@ export default function CompanyOverview() {
               <span className="px-4 py-2 rounded-full bg-[#4A89C8]/10 border border-[#4A89C8]/20 text-[9px] font-bold text-white uppercase tracking-widest">Execution</span>
             </div>
           </div>
-
-          <motion.div 
-            className="flex flex-wrap gap-3"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-          >
+          <motion.div className="flex flex-wrap gap-3" variants={containerVariants} initial="hidden" whileInView="visible">
             {TECH_STACK.map((tech, i) => (
-              <motion.span 
-                key={i}
-                variants={itemVariants}
-                className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-slate-300 text-[11px] font-medium hover:bg-[#4A89C8] hover:text-white hover:border-[#4A89C8] transition-all cursor-default"
-              >
+              <motion.span key={i} variants={itemVariants} className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-slate-300 text-[11px] font-medium hover:bg-[#4A89C8] hover:text-white hover:border-[#4A89C8] transition-all cursor-default">
                 {tech}
               </motion.span>
             ))}
@@ -233,12 +218,8 @@ export default function CompanyOverview() {
         </div>
 
         {/* --- 6. CONCLUSION --- */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="mt-32 pt-20 border-t border-white/5 text-center max-w-7xl mx-auto"
-        >
-          <p className="text-slate-500 font-light max-w-3xl mx-auto leading-relaxed italic text-balance">
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="mt-32 pt-20 border-t border-white/5 text-center max-w-7xl mx-auto">
+          <p className="text-white font-light max-w-3xl mx-auto leading-relaxed italic text-balance">
             "At TechConnect Global Pvt Ltd, our commitment remains unwavering: to empower the international market with elite engineering, while protecting Sri Lankan heritage and creating advanced career pathways for the next generation of architects."
           </p>
         </motion.div>
