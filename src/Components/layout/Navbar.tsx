@@ -29,8 +29,8 @@ export function Navbar() {
     { name: 'Home', path: '/' },
     { name: 'Company Overview', path: '/company-overview' },
     { name: 'Our Services', path: '/service-details' },
-    { name: 'Our Projects', path: '/projects' },
-    { name: 'Our Clients', path: '/clients' },
+    { name: 'Our Projects', path: '/our-projects' },
+    { name: 'Our Clients', path: '/our-clients' },
   ]
 
   return (
