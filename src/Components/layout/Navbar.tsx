@@ -166,7 +166,7 @@ export function Navbar() {
               <div className="mt-4 flex flex-col gap-4 px-5">
                  <div className="flex items-center gap-3 text-slate-400">
                     <Mail size={14} className="text-[#4A89C8]" />
-                    <span className="text-[10px] font-bold uppercase tracking-widest">info@techconnect.global</span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest">pm@mediconnect.com.lk</span>
                  </div>
                  <div className="flex items-center gap-3 text-slate-400">
                     <Phone size={14} className="text-[#4A89C8]" />

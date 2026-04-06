@@ -61,9 +61,7 @@ export default function Hero() {
       </div>
 
       {/* --- MAIN CONTENT CONTAINER --- */}
-      {/* pt-40: Added significant space from the top for the Navbar 
-          items-center & text-center: Ensures perfect middle alignment
-      */}
+
       <motion.div
         style={{ opacity, scale }}
         className="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-8 flex flex-col items-center text-center pt-40 pb-20"
