@@ -36,7 +36,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-[100] flex flex-col items-center pt-6 px-6 pointer-events-none">
       
-      {/* --- TOP BAR: SOCIALS & CONTACT --- */}
+      {/* --- TOP BAR --- */}
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: isScrolled ? -20 : 0, opacity: isScrolled ? 0 : 1 }}
@@ -44,29 +44,34 @@ export function Navbar() {
         className="w-full max-w-7xl flex justify-between items-center px-8 mb-4 pointer-events-auto"
       >
         <div className="flex items-center gap-8">
-          <div className="flex items-center gap-2 group cursor-pointer">
+          {/* DESKTOP EMAIL */}
+          <a href="mailto:pm@mediconnect.com.lk" className="flex items-center gap-2 group cursor-pointer">
             <Mail className="w-3.5 h-3.5 text-[#4A89C8]" />
-            <span className="text-[10px] font-bold text-slate-400 group-hover:text-white transition-colors tracking-widest uppercase">info@techconnect.global</span>
-          </div>
-          <div className="hidden sm:flex items-center gap-2 group cursor-pointer">
+            <span className="text-[10px] font-black text-slate-400 group-hover:text-white transition-colors tracking-widest uppercase">
+              pm@mediconnect.com.lk
+            </span>
+          </a>
+          {/* DESKTOP PHONE */}
+          <a href="tel:+94707993375" className="hidden sm:flex items-center gap-2 group cursor-pointer">
             <Phone className="w-3.5 h-3.5 text-[#4A89C8]" />
-            <span className="text-[10px] font-bold text-slate-400 group-hover:text-white transition-colors tracking-widest uppercase">+94 70 799 3375</span>
-          </div>
+            <span className="text-[10px] font-black text-slate-400 group-hover:text-white transition-colors tracking-widest uppercase">
+              +94 70 799 3375
+            </span>
+          </a>
         </div>
 
+        {/* SOCIALS */}
         <div className="flex items-center gap-5">
-          <a href="#" className="p-1.5 rounded-full bg-white/5 text-slate-400 hover:text-[#4A89C8] hover:bg-white/10 transition-all">
-            <FaFacebookF size={12} />
-          </a>
-          <a href="#" className="p-1.5 rounded-full bg-white/5 text-slate-400 hover:text-[#4A89C8] hover:bg-white/10 transition-all">
-            <FaLinkedinIn size={12} />
-          </a>
-          <a href="#" className="p-1.5 rounded-full bg-white/5 text-slate-400 hover:text-[#4A89C8] hover:bg-white/10 transition-all">
-            <FaInstagram size={12} />
-          </a>
-          <a href="#" className="p-1.5 rounded-full bg-white/5 text-slate-400 hover:text-[#4A89C8] hover:bg-white/10 transition-all">
-            <FaXTwitter size={12} />
-          </a>
+          {[
+            { Icon: FaFacebookF, href: "#" },
+            { Icon: FaLinkedinIn, href: "#" },
+            { Icon: FaInstagram, href: "#" },
+            { Icon: FaXTwitter, href: "#" }
+          ].map((item, index) => (
+            <a key={index} href={item.href} className="p-1.5 rounded-full bg-white/5 text-slate-400 hover:text-[#4A89C8] hover:bg-white/10 transition-all">
+              <item.Icon size={12} />
+            </a>
+          ))}
         </div>
       </motion.div>
 
@@ -77,25 +82,22 @@ export function Navbar() {
         transition={{ type: "spring", stiffness: 200, damping: 25 }}
         className={`pointer-events-auto w-full max-w-7xl rounded-[2.5rem] transition-all duration-500 border flex items-center h-20 ${
           isScrolled 
-            ? 'bg-[#020314]/80 backdrop-blur-3xl border-white/10 px-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] translate-y-[-30px]' 
+            ? 'bg-[#020314]/90 backdrop-blur-3xl border-white/10 px-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] translate-y-[-20px]' 
             : 'bg-white/5 backdrop-blur-md border-white/10 px-6'
         }`}
       >
         <div className="flex justify-between items-center w-full h-full">
           
-          {/* --- LOGO SECTION --- */}
           <Link href="/" className="flex items-center group h-12">
             <div className="relative h-full w-auto flex items-center justify-center overflow-hidden rounded-xl">
               <img 
                 src="/img/Logo-1.jpeg" 
                 alt="TechConnect Logo" 
-                className="h-full w-auto object-contain group-hover:scale-105 transition-transform duration-300 shadow-2xl"
+                className="h-full w-auto object-contain group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-[#4A89C8]/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
           </Link>
 
-          {/* --- DESKTOP NAVIGATION --- */}
           <nav className="hidden lg:flex items-center gap-1 p-1 bg-white/5 rounded-full border border-white/5 h-12">
             {navLinks.map((link) => {
               const isActive = pathname === link.path
@@ -103,7 +105,7 @@ export function Navbar() {
                 <Link
                   key={link.name}
                   href={link.path}
-                  className={`relative px-5 h-full flex items-center text-[9px] font-black uppercase tracking-[0.2em] transition-all rounded-full overflow-hidden ${
+                  className={`relative px-5 h-full flex items-center text-[9px] font-black uppercase tracking-[0.2em] transition-all rounded-full ${
                     isActive ? 'text-white' : 'text-slate-400 hover:text-white'
                   }`}
                 >
@@ -120,19 +122,17 @@ export function Navbar() {
             })}
           </nav>
 
-          {/* --- ACTION BUTTON --- */}
           <div className="hidden md:flex items-center h-12">
             <Link href="/contact">
               <Button
                 variant="outline"
-                className="rounded-full px-10 h-full border-white/10 text-white bg-white/5 hover:bg-white hover:text-[#020314] transition-all text-[10px] font-black uppercase tracking-widest shadow-xl"
+                className="rounded-full px-10 h-full border-white/10 text-white bg-white/5 hover:bg-white hover:text-[#020314] transition-all text-[10px] font-black uppercase tracking-widest"
               >
                 Contact Us
               </Button>
             </Link>
           </div>
 
-          {/* MOBILE TOGGLE */}
           <button
             className="lg:hidden p-3 rounded-full bg-white/5 border border-white/10 text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -149,7 +149,7 @@ export function Navbar() {
             initial={{ opacity: 0, scale: 0.98, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.98, y: -10 }}
-            className="lg:hidden absolute top-32 left-6 right-6 bg-[#020314]/98 backdrop-blur-3xl rounded-[2.5rem] p-8 border border-white/10 shadow-2xl pointer-events-auto"
+            className="lg:hidden absolute top-36 left-6 right-6 bg-[#020314]/98 backdrop-blur-3xl rounded-[2.5rem] p-8 border border-white/10 shadow-2xl pointer-events-auto"
           >
             <div className="flex flex-col gap-3">
               {navLinks.map((link) => (
@@ -164,14 +164,14 @@ export function Navbar() {
               ))}
               
               <div className="mt-4 flex flex-col gap-4 px-5">
-                 <div className="flex items-center gap-3 text-slate-400">
+                 <a href="mailto:pm@mediconnect.com.lk" className="flex items-center gap-3 text-slate-400">
                     <Mail size={14} className="text-[#4A89C8]" />
                     <span className="text-[10px] font-bold uppercase tracking-widest">pm@mediconnect.com.lk</span>
-                 </div>
-                 <div className="flex items-center gap-3 text-slate-400">
+                 </a>
+                 <a href="tel:+94707993375" className="flex items-center gap-3 text-slate-400">
                     <Phone size={14} className="text-[#4A89C8]" />
                     <span className="text-[10px] font-bold uppercase tracking-widest">+94 70 799 3375</span>
-                 </div>
+                 </a>
               </div>
 
               <div className="mt-6 pt-6 border-t border-white/5">
