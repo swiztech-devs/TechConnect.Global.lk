@@ -16,7 +16,6 @@ import {
   BarChart3
 } from 'lucide-react'
 
-// 1. DATA STRUCTURE WITH GUARANTEED ARRAYS
 const SERVICES = [
   {
     id: 'erp',
@@ -88,10 +87,8 @@ export default function ServiceDetails() {
   const [activeTab, setActiveTab] = useState(SERVICES[0])
 
   return (
-    /* INCREASED SPACE: pt-64 ensures content starts well below your navbars */
     <section className="relative min-h-screen bg-[#020314] pt-64 pb-32 overflow-hidden">
       
-      {/* Background Ambience */}
       <div className="absolute top-0 left-1/4 w-[800px] h-[600px] bg-[#2B2E83]/10 blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-[#4A89C8]/5 blur-[150px] rounded-full pointer-events-none" />
 
@@ -117,10 +114,8 @@ export default function ServiceDetails() {
           </motion.h2>
         </div>
 
-        {/* --- MAIN GRID --- */}
         <div className="grid lg:grid-cols-[380px_1fr] gap-12 items-start">
           
-          {/* LEFT PANEL */}
           <div className="flex flex-col gap-4">
             {SERVICES.map((service) => (
               <button
@@ -155,7 +150,6 @@ export default function ServiceDetails() {
               </button>
             ))}
             
-            {/* Context Widget */}
             <div className="mt-8 p-8 rounded-[2.5rem] border border-white/5 bg-white/[0.02] hidden lg:block">
                <Activity className="w-5 h-5 text-[#4A89C8] mb-4" />
                <p className="text-[11px] text-slate-500 leading-relaxed font-medium">
@@ -164,7 +158,6 @@ export default function ServiceDetails() {
             </div>
           </div>
 
-          {/* RIGHT PANEL */}
           <div className="relative min-h-[700px]">
             <AnimatePresence mode="wait">
               <motion.div
@@ -193,7 +186,6 @@ export default function ServiceDetails() {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-12 mb-16">
-                  {/* Technical Scope */}
                   <div className="space-y-6">
                     <h4 className="text-xs font-black uppercase tracking-[0.3em] text-white/40 flex items-center gap-2">
                        <Layers className="w-4 h-4" /> Technical Scope
@@ -208,7 +200,6 @@ export default function ServiceDetails() {
                     </div>
                   </div>
 
-                  {/* Deployment Roadmap */}
                   <div className="space-y-6">
                     <h4 className="text-xs font-black uppercase tracking-[0.3em] text-white/40 flex items-center gap-2">
                        <BarChart3 className="w-4 h-4" /> Deployment Roadmap

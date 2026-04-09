@@ -19,15 +19,8 @@ export function FinalCTA() {
   return (
 
     <section className="relative py-24 bg-[#020314] overflow-hidden">
-
-      {/* Background Glows specifically for this section */}
-
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#2B2E83]/10 blur-[120px] rounded-full pointer-events-none" />
-
-
-
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-
         <motion.div
 
           initial={{ opacity: 0, y: 40 }}

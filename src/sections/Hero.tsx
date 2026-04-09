@@ -6,7 +6,6 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { ArrowRight, PlayCircle } from 'lucide-react';
 import { Button } from '@/Components/ui/Button';
 
-// VIDEO ASSETS
 const videoSources = [
   "/Videos/Hero-V-1.mp4", 
   "/Videos/Hero-V-2.mp4", 
@@ -37,7 +36,7 @@ export default function Hero() {
       ref={containerRef}
       className="relative min-h-[100vh] w-full flex flex-col items-center justify-center overflow-hidden bg-[#020314]"
     >
-      {/* --- BACKGROUND LAYER (Video & Gradients) --- */}
+      {/* --- BACKGROUND LAYER --- */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#020314]/80 via-transparent to-[#020314]" />
         <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,transparent_0%,#020314_90%)]" />
@@ -64,9 +63,9 @@ export default function Hero() {
 
       <motion.div
         style={{ opacity, scale }}
-        className="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-8 flex flex-col items-center text-center pt-40 pb-20"
+        className="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-8 flex flex-col items-center text-center pt-64 pb-20"
       >
-        {/* Sub-heading / Badge */}
+        {/* Sub-heading */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -99,7 +98,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 font-light leading-relaxed px-4"
           >
-            Deploying high-velocity ERP, IoT, and Cloud ecosystems for the 
+            Deploy high-velocity ERP, IoT, and Cloud ecosystems for the 
             enterprises that will lead the next decade.
           </motion.p>
         </div>
@@ -125,7 +124,7 @@ export default function Hero() {
           </button>
         </motion.div>
 
-        {/* Footer Metrics (Bottom of Hero) */}
+        {/* Footer Metrics */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.4 }}

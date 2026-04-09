@@ -48,7 +48,6 @@ const projectVariants: Variants = {
 export function DeploymentPortfolio() {
   return (
     <section className="relative py-32 bg-[#020314] overflow-hidden">
-      {/* Visual Divider */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#4A89C8]/30 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -75,7 +74,6 @@ export function DeploymentPortfolio() {
           </motion.button>
         </header>
 
-        {/* 3-COLUMN PROJECTS GRID */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -89,8 +87,7 @@ export function DeploymentPortfolio() {
               variants={projectVariants}
               className="group relative"
             >
-              {/* --- IMAGE CONTAINER START --- */}
-              {/* NOTE: Recommended aspect ratio is 16:11. Place files in /public/images/ */}
+             
               <div className="relative aspect-[16/11] overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 shadow-2xl">
                 <motion.div 
                   whileHover={{ scale: 1.1 }}
@@ -98,14 +95,13 @@ export function DeploymentPortfolio() {
                   className="absolute inset-0 bg-cover bg-center"
                   style={{ 
                     backgroundImage: `url(${project.image})`,
-                    backgroundColor: '#1a1b26' // Fallback color while loading
+                    backgroundColor: '#1a1b26'
                   }}
                 >
-                  {/* Subtle tint for text contrast */}
+                  
                   <div className="absolute inset-0 bg-[#020314]/50 group-hover:bg-[#020314]/20 transition-colors duration-500" />
                 </motion.div>
 
-                {/* Glass Tags */}
                 <div className="absolute top-6 left-6 flex flex-wrap gap-2">
                   {project.tags.map(tag => (
                     <span key={tag} className="px-3 py-1 bg-[#020314]/60 backdrop-blur-xl border border-white/10 rounded-full text-[9px] text-blue-100 font-black tracking-widest uppercase">
@@ -114,7 +110,6 @@ export function DeploymentPortfolio() {
                   ))}
                 </div>
               </div>
-              {/* --- IMAGE CONTAINER END --- */}
 
               <div className="mt-8 space-y-3 px-2">
                 <div className="flex items-center justify-between">
@@ -139,7 +134,6 @@ export function DeploymentPortfolio() {
         </motion.div>
       </div>
 
-      {/* Ambient Radial Lighting */}
       <div className="absolute -bottom-40 -left-20 w-[600px] h-[600px] bg-[#2B2E83]/10 blur-[150px] rounded-full pointer-events-none" />
     </section>
   );

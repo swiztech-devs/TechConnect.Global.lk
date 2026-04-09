@@ -52,7 +52,6 @@ const cardVariants: Variants = {
 export function Services() {
   return (
     <section className="relative py-32 bg-[#020314] overflow-hidden">
-      {/* Background Tech Grid */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:45px_45px]" />
       </div>
@@ -104,9 +103,7 @@ export function Services() {
                   backgroundPosition: 'center'
                 }}
               >
-                {/* GRADIENT OVERLAY: 
-                   This ensures text is always readable regardless of the image brightness.
-                */}
+
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020314] via-[#020314]/80 to-[#020314]/40" />
               </div>
               {/* --- IMAGE LAYER END --- */}
@@ -140,7 +137,6 @@ export function Services() {
                 </div>
               </div>
 
-              {/* Card Glow Effect on Hover */}
               <div className="absolute inset-0 bg-[#4A89C8]/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
             </motion.div>
           ))}

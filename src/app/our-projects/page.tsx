@@ -12,8 +12,6 @@ import {
   ArrowUpRight 
 } from 'lucide-react'
 import { FaGithub } from 'react-icons/fa'
-
-// 1. DATA DEFINITIONS - Startup Focused
 const CATEGORIES = ["All", "Core ERP", "Edge IoT", "Cloud Native", "BPO Solutions"]
 
 const PROJECTS = [
@@ -76,7 +74,6 @@ const PROJECTS = [
     id: 6,
     title: "Aura Home Automation",
     category: "Edge IoT",
-    // FIXED: Using a more robust, guaranteed Unsplash image for IoT Smart Home
     image: "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=2070",
     client: "Aura Smart Homes",
     stack: ["Arduino", "WebSocket", "Flutter"],
@@ -105,14 +102,12 @@ export default function ProjectsPage() {
 
   return (
     <section className="relative min-h-screen bg-[#020314] pt-64 pb-32 overflow-hidden">
-      
-      {/* Cinematic Background Ambience */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#2B2E83]/10 blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#4A89C8]/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         
-        {/* --- 1. HEADER --- */}
+        {/* --- HEADER --- */}
         <div className="max-w-3xl mb-20">
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6">
             <ShieldCheck className="w-3.5 h-3.5 text-[#4A89C8]" />
@@ -127,7 +122,7 @@ export default function ProjectsPage() {
           </p>
         </div>
 
-        {/* --- 2. FILTER & SEARCH BAR --- */}
+        {/* --- FILTER & SEARCH BAR --- */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-16 border-b border-white/5 pb-10">
           <div className="flex flex-wrap gap-2">
             {CATEGORIES.map((cat) => (
@@ -159,7 +154,7 @@ export default function ProjectsPage() {
           </div>
         </div>
 
-        {/* --- 3. PROJECTS GRID --- */}
+        {/* --- PROJECTS GRID --- */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 min-h-[400px]">
           <AnimatePresence mode='popLayout'>
             {filteredProjects.length > 0 ? (
@@ -180,7 +175,6 @@ export default function ProjectsPage() {
                         alt={project.title} 
                         className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
                         onError={(e) => {
-                          // Fallback to tech image if specific project image fails
                           e.currentTarget.src = "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070";
                         }}
                       />
@@ -228,7 +222,7 @@ export default function ProjectsPage() {
           </AnimatePresence>
         </motion.div>
 
-        {/* --- 4. CTA FOOTER --- */}
+        {/* --- CTA FOOTER --- */}
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="mt-32 p-12 rounded-[3rem] bg-gradient-to-r from-white/[0.02] to-transparent border border-white/5 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
           <div>
             <h4 className="text-2xl font-bold text-white mb-2 tracking-tight">Need an MVP in record time?</h4>

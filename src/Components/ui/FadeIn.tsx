@@ -31,8 +31,6 @@ export function FadeIn({
   return (
     <motion.div
       initial={{ opacity: 0, ...directions[direction] }}
-      // FIX: Use whileInView with a rootMargin so elements already on screen
-      // are treated as "in view" immediately on mount
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, amount: 0, margin: '0px 0px -10px 0px' }}
       transition={{
@@ -90,7 +88,6 @@ export function TextReveal({
       style={{ overflow: 'hidden', display: 'flex', flexWrap: 'wrap', width: '100%' }}
       variants={container}
       initial="hidden"
-      // FIX: Same fix — margin ensures on-screen elements trigger immediately
       whileInView="visible"
       viewport={{ once: true, amount: 0, margin: '0px 0px -10px 0px' }}
       className={className}

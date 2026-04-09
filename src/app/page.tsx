@@ -15,86 +15,57 @@ import { FinalCTA } from "@/sections/CTA";
 export default function Page() {
   return (
     <main className="relative w-full overflow-hidden bg-[#020314] selection:bg-[#4A89C8]/30">
-      
-      {/* 1. HERO - INITIAL PROTOCOL */}
       <Hero />
 
       <div className="relative z-10 bg-gradient-to-b from-[#020314] via-[#05071a] to-[#020314]">
-        
-        {/* SECTION BREAK 1: The Glass Border */}
         <section className="border-y border-white/5 bg-white/[0.02] backdrop-blur-sm relative">
           <TrustBar />
           <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#4A89C8]/20 to-transparent" />
         </section>
-
-        {/* 2. OVERVIEW - BRAND IDENTITY */}
         <CompanyOverview />
 
-        {/* SECTION BREAK 2: The "Verification Bridge" (Relocated for Value Prop) */}
         <div className="relative pt-20 pb-10 flex flex-col items-center">
           <div className="w-24 h-[1px] bg-[#4A89C8]/40 mb-4" />
           <div className="text-[10px] uppercase tracking-[0.6em] text-white/20 font-black">Verified Protocol Data</div>
         </div>
-
-        {/* 3. VALUE PROPOSITION - IMPACT & SCALE (Added Here) */}
         <ValueProposition />
 
-        {/* SECTION BREAK 3: Radial Spotlight Transition */}
         <div className="relative h-24 w-full overflow-hidden">
            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(74,137,200,0.08)_0%,transparent_70%)]" />
         </div>
-
-        {/* 4. BENTO GRID - STRATEGIC LOGIC */}
         <BentoGrid />
 
-        {/* SECTION BREAK 4: The "Beam" Divider */}
         <div className="relative py-10 flex justify-center">
           <div className="w-[80%] h-px bg-gradient-to-r from-transparent via-[#4A89C8]/40 to-transparent shadow-[0_0_20px_rgba(74,137,200,0.3)]" />
         </div>
 
-        {/* 5. SERVICES - CORE PILLARS */}
         <section className="relative bg-[#2B2E83]/5">
           <Services />
         </section>
 
-        {/* SECTION BREAK 5: Angled Mesh Blend */}
         <div className="relative h-40 w-full">
            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-[#020314]" />
         </div>
-
-        {/* 6. DEPLOYMENT PORTFOLIO - PROOF OF CONCEPT */}
         <DeploymentPortfolio />
 
-        {/* SECTION BREAK 6: The "Neural Link" Transition into Team */}
         <div className="relative py-24 flex flex-col items-center justify-center overflow-hidden">
           <div className="absolute w-px h-32 bg-gradient-to-b from-[#4A89C8] to-transparent opacity-50" />
           <div className="mt-32 text-[9px] font-black uppercase tracking-[0.8em] text-[#4A89C8] animate-pulse">Human Intelligence Layer</div>
         </div>
-
-        {/* 7. OUR TEAM - THE ARCHITECTS */}
         <TeamSection />
 
-        {/* SECTION BREAK 7: The "Prism" Divider */}
         <div className="relative h-32 w-full flex items-center justify-center overflow-hidden">
           <div className="w-[50%] h-[1px] bg-gradient-to-r from-transparent via-[#4A89C8]/30 to-transparent" />
           <div className="absolute w-[300px] h-[300px] bg-[#4A89C8]/5 blur-[80px] rounded-full" />
         </div>
-
-        {/* 8. TESTIMONIALS - SOCIAL PROOF */}
         <Testimonials />
-
-        {/* SECTION BREAK 8: The "Conversion Bridge" */}
         <div className="relative h-32 w-full overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-px bg-gradient-to-r from-transparent via-[#4A89C8]/30 to-transparent" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(43,46,131,0.05)_0%,transparent_100%)]" />
         </div>
-
-        {/* 9. FINAL CALL TO ACTION - CONVERSION POINT */}
         <FinalCTA />
         
       </div>
-      
-      {/* GLOBAL BACKGROUND LIGHTING (The 'Heartbeat') */}
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-[#2B2E83]/10 blur-[120px] animate-pulse" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-[#4A89C8]/5 blur-[120px]" />

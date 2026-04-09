@@ -57,7 +57,6 @@ export function ValueProposition() {
             className="space-y-12"
           >
             <div className="space-y-8">
-              {/* --- THE TRUST SHIELD (New Visual Link) --- */}
               <div className="flex items-center gap-3 text-[#4A89C8]">
                 <ShieldCheck className="w-6 h-6 animate-pulse" />
                 <span className="text-[10px] font-black uppercase tracking-[0.5em]">Verified Protocol</span>

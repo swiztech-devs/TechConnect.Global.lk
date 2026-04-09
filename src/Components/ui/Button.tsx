@@ -11,7 +11,6 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   magnetic?: boolean
 }
 
-// Use forwardRef to properly type motion.button + TS
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
@@ -66,7 +65,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <motion.button
         ref={(node) => {
-          // attach both refs: forwardRef + local ref
           buttonRef.current = node
           if (typeof ref === 'function') ref(node)
           else if (ref) ref.current = node
@@ -77,7 +75,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.1 }}
         whileTap={{ scale: 0.95 }}
         className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
-        {...(props as MotionProps)} // <-- cast props to MotionProps to avoid TS conflict
+        {...(props as MotionProps)} 
       >
         {(variant === 'primary' || variant === 'secondary' || variant === 'accent') && (
           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
@@ -88,4 +86,4 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   }
 )
 
-Button.displayName = 'Button' // important when using forwardRef
+Button.displayName = 'Button' 

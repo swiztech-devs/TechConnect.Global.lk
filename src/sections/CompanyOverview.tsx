@@ -5,12 +5,9 @@ import { motion, useInView, Variants } from 'framer-motion';
 import { Shield, Zap, Cpu, Globe, Download, FileText } from 'lucide-react';
 import { Button } from '@/Components/ui/Button';
 
-// --- RIGHT SIDE: HEARTBEAT ARCHITECTURE ANIMATION ---
 const ArchitectureVisual = () => {
   return (
     <div className="relative w-full aspect-square max-w-[500px] mx-auto flex items-center justify-center">
-      
-      {/* 1. PULSING RADIANCE (The Heartbeat Glow) */}
       <motion.div
         animate={{
           scale: [1, 1.15, 1],
@@ -24,7 +21,6 @@ const ArchitectureVisual = () => {
         className="absolute w-[60%] h-[60%] bg-[#4A89C8] blur-[100px] rounded-full pointer-events-none"
       />
 
-      {/* 2. ROTATING ARTERY RINGS */}
       <motion.div 
         animate={{ rotate: 360 }}
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
@@ -43,7 +39,6 @@ const ArchitectureVisual = () => {
         className="absolute w-[75%] h-[75%] rounded-full border border-[#2B2E83]/20 shadow-[0_0_40px_rgba(43,46,131,0.05)]" 
       />
 
-      {/* 3. FLOATING TECH NODES */}
       <div className="relative z-10 grid grid-cols-2 gap-6">
         {[
           { icon: <Shield className="w-6 h-6" />, label: "Security", color: "bg-[#2B2E83]" },
@@ -78,7 +73,6 @@ const ArchitectureVisual = () => {
         ))}
       </div>
 
-      {/* 4. CENTRAL CORE */}
       <motion.div 
         animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.8, 0.4] }}
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -94,7 +88,6 @@ export function CompanyOverview() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const handleDownload = () => {
-    // TRIGGER DOWNLOAD: Replace with the actual path to your PDF in the /public folder
     const pdfUrl = "/documents/TechConnect-Global-Overview.pdf";
     const link = document.createElement("a");
     link.href = pdfUrl;
@@ -115,8 +108,7 @@ export function CompanyOverview() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          
-          {/* LEFT CONTENT */}
+
           <motion.div
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -150,7 +142,6 @@ export function CompanyOverview() {
               </div>
             </motion.div>
 
-            {/* DOWNLOAD BUTTON */}
             <motion.div variants={itemVariants} className="pt-6">
               <Button 
                 onClick={handleDownload}
@@ -166,7 +157,6 @@ export function CompanyOverview() {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT CONTENT */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}

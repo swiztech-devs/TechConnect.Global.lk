@@ -22,7 +22,7 @@ export default {
         'float': 'float 6s ease-in-out infinite',
         'float-delayed': 'float 6s ease-in-out 3s infinite',
         'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
-        'spin-slow': 'spin-slow 20s linear infinite', // Changed to match your custom keyframe if needed
+        'spin-slow': 'spin-slow 20s linear infinite', 
         'marquee': 'marquee 30s linear infinite',
       },
       keyframes: {

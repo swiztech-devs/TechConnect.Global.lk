@@ -13,7 +13,6 @@ import {
   Mail
 } from 'lucide-react'
 
-// --- HELPER COMPONENT FOR ANIMATED NUMBERS ---
 function Counter({ value }: { value: number }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true })
@@ -33,7 +32,6 @@ function Counter({ value }: { value: number }) {
   return <span ref={ref}><motion.span>{rounded}</motion.span></span>
 }
 
-// 1. DATA DEFINITIONS
 const STATS = [
   { label: "Active Clients", value: 40, icon: Users },
   { label: "Projects Done", value: 70, icon: Briefcase },
@@ -62,16 +60,16 @@ const CORE_PILLARS = [
 ]
 
 const TEAM_MEMBERS = [
-  { name: "Marcus Sterling", role: "Chief Architect", credentials: "MSc SE, OCPJP", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400", category: "Leadership" },
-  { name: "Elena Rodriguez", role: "Systems Lead", credentials: "MSc SE, Bsc.SEng", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400", category: "Leadership" },
-  { name: "Adrian Chen", role: "Consultant", credentials: "B.(IT), OCPJP", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400", category: "Consultancy" },
-  { name: "Sarah Jenkins", role: "Senior Dev", credentials: "Bsc.SEng, OCPMAD", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400", category: "Engineering" },
-  { name: "Julian Voss", role: "Core Infra", credentials: "BICT (Hons)", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400", category: "Engineering" },
-  { name: "Sophia Kwok", role: "UI Designer", credentials: "Visual Arts Spec.", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400", category: "Creative" },
-  { name: "David Park", role: "Full Stack", credentials: "Bsc.CS, OCPJP", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400", category: "Engineering" },
-  { name: "Aisha Khan", role: "QA Lead", credentials: "Bsc.IT, ISTQB", image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&q=80&w=400", category: "Engineering" },
-  { name: "Leo Rossi", role: "Junior Dev", credentials: "Bsc.SEng (UG)", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", category: "Engineering" },
-  { name: "Nina Gupta", role: "Web Dev", credentials: "Bsc.SE, React Spec.", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", category: "Engineering" }
+  { name: "Marcus Sterling", role: "Chief Architect", credentials: "MSc SE, OCPJP", image: "/img/team/male.jpg", category: "Leadership" },
+  { name: "Elena Rodriguez", role: "Systems Lead", credentials: "MSc SE, Bsc.SEng", image: "/img/team/female.jpg", category: "Leadership" },
+  { name: "Adrian Chen", role: "Consultant", credentials: "B.(IT), OCPJP", image: "/img/team/male.jpg", category: "Consultancy" },
+  { name: "Sarah Jenkins", role: "Senior Dev", credentials: "Bsc.SEng, OCPMAD", image: "/img/team/female.jpg", category: "Engineering" },
+  { name: "Julian Voss", role: "Core Infra", credentials: "BICT (Hons)", image: "/img/team/male.jpg", category: "Engineering" },
+  { name: "Sophia Kwok", role: "UI Designer", credentials: "Visual Arts Spec.", image: "/img/team/female.jpg", category: "Creative" },
+  { name: "David Park", role: "Full Stack", credentials: "Bsc.CS, OCPJP", image: "/img/team/male.jpg", category: "Engineering" },
+  { name: "Aisha Khan", role: "QA Lead", credentials: "Bsc.IT, ISTQB", image: "/img/team/female.jpg", category: "Engineering" },
+  { name: "Leo Rossi", role: "Junior Dev", credentials: "Bsc.SEng (UG)", image: "/img/team/male.jpg", category: "Engineering" },
+  { name: "Nina Gupta", role: "Web Dev", credentials: "Bsc.SE, React Spec.", image: "/img/team/female.jpg", category: "Engineering" }
 ]
 
 const containerVariants: Variants = {
@@ -101,7 +99,7 @@ export default function CompanyOverview() {
 
       <div className="max-w-[1600px] mx-auto px-6 relative z-10">
         
-        {/* --- 1. HERO HEADER --- */}
+        {/* --- HERO HEADER --- */}
         <div className="grid lg:grid-cols-2 gap-16 items-start mb-32 max-w-7xl mx-auto">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8">
@@ -124,7 +122,7 @@ export default function CompanyOverview() {
           </motion.div>
         </div>
 
-        {/* --- 2. STATS ENGINE (Animated Counters) --- */}
+        {/* --- STATS ENGINE --- */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -147,7 +145,7 @@ export default function CompanyOverview() {
           ))}
         </motion.div>
 
-        {/* --- 3. VISION & MISSION --- */}
+        {/* --- VISION & MISSION --- */}
         <div className="grid md:grid-cols-2 gap-8 mb-32 max-w-7xl mx-auto">
           {CORE_PILLARS.map((pillar, i) => (
             <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className={`relative p-12 rounded-[2.5rem] border border-white/5 bg-gradient-to-br ${pillar.color} overflow-hidden group shadow-2xl`}>
@@ -159,7 +157,7 @@ export default function CompanyOverview() {
           ))}
         </div>
 
-        {/* --- 4. TEAM GRID --- */}
+        {/* --- TEAM GRID --- */}
         <div className="mb-32">
           <div className="text-center mb-20">
             <h3 className="text-sm font-black uppercase tracking-[0.5em] text-[#4A89C8] mb-4">Our Strength</h3>
@@ -195,7 +193,7 @@ export default function CompanyOverview() {
           </motion.div>
         </div>
 
-        {/* --- 5. TECHNOLOGY STACK --- */}
+        {/* --- TECHNOLOGY STACK --- */}
         <div className="relative p-12 md:p-16 rounded-[3rem] bg-white/[0.02] border border-white/5 overflow-hidden max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
             <div>
@@ -217,7 +215,7 @@ export default function CompanyOverview() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#4A89C8]/5 blur-[100px] rounded-full pointer-events-none" />
         </div>
 
-        {/* --- 6. CONCLUSION --- */}
+        {/* --- CONCLUSION --- */}
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="mt-32 pt-20 border-t border-white/5 text-center max-w-7xl mx-auto">
           <p className="text-white font-light max-w-3xl mx-auto leading-relaxed italic text-balance">
             "At TechConnect Global Pvt Ltd, our commitment remains unwavering: to empower the international market with elite engineering, while protecting Sri Lankan heritage and creating advanced career pathways for the next generation of architects."

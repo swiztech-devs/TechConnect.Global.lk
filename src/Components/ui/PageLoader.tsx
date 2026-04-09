@@ -8,12 +8,10 @@ export function PageLoader() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // 1. Simulate a loading progress for cinematic effect
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          // Small delay before closing to show 100%
           setTimeout(() => setIsLoading(false), 500);
           return 100;
         }
@@ -35,11 +33,9 @@ export function PageLoader() {
           }}
           className="fixed inset-0 z-[9999] bg-[#020314] flex flex-col items-center justify-center"
         >
-          {/* Background Ambient Glow */}
           <div className="absolute w-[500px] h-[500px] bg-[#2B2E83]/20 blur-[120px] rounded-full" />
 
           <div className="relative z-10 flex flex-col items-center">
-            {/* Logo Image Placeholder */}
             <motion.img 
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -69,7 +65,6 @@ export function PageLoader() {
             </div>
           </div>
 
-          {/* Bottom Compliance Markers */}
           <div className="absolute bottom-12 flex gap-8 opacity-20">
              <div className="text-[8px] font-bold text-white tracking-widest uppercase">Encryption: Active</div>
              <div className="text-[8px] font-bold text-white tracking-widest uppercase">Protocol: 2026-X</div>

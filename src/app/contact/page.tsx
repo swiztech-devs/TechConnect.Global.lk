@@ -64,7 +64,6 @@ export default function ContactPage() {
 
   return (
     <main className="relative w-full min-h-screen bg-[#020314] pt-44 selection:bg-[#4A89C8]/30 text-white">
-      {/* Background Ambience */}
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#2B2E83]/10 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 pb-32">
@@ -176,7 +175,6 @@ export default function ContactPage() {
 
       {/* --- UPDATED MIDDLE MAP SECTION --- */}
       <section className="relative w-full h-[500px] mt-12 bg-[#05061b] border-y border-white/5 overflow-hidden rounded-[3rem]">
-        {/* Inner Shadow / Vignette */}
         <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_150px_rgba(2,3,20,1)]" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#05061b] to-transparent pointer-events-none" />
         <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#05061b] to-transparent pointer-events-none" />

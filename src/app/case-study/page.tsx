@@ -7,16 +7,10 @@ import Link from 'next/link'
 
 export default function CaseStudyPage() {
   return (
-    // Increased pt-32 to pt-48 to provide massive breathing room for the Navbar
     <main className="relative w-full min-h-screen bg-[#020314] pt-48 pb-32 overflow-hidden selection:bg-[#4A89C8]/30 text-white">
-      
-      {/* Background Ambient Elements */}
       <div className="absolute top-0 left-1/4 w-[600px] h-[300px] bg-[#2B2E83]/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#4A89C8]/5 blur-[100px] rounded-full pointer-events-none" />
-
       <div className="max-w-5xl mx-auto px-6 relative z-10">
-        
-        {/* BACK NAVIGATION - Added more bottom margin (mb-16) */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -26,8 +20,6 @@ export default function CaseStudyPage() {
             <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" /> Back to Systems
           </Link>
         </motion.div>
-
-        {/* HERO CONTENT - Added more vertical separation (mb-28) */}
         <div className="mb-28">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -63,12 +55,11 @@ export default function CaseStudyPage() {
           </motion.p>
         </div>
 
-        {/* TECHNICAL METRICS (Glass Grid) */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-32" // Increased mb-24 to mb-32
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-32" 
         >
           {[
             { val: '10k', label: 'TPS Peak', icon: <Zap className="w-4 h-4" /> },
@@ -90,8 +81,7 @@ export default function CaseStudyPage() {
           ))}
         </motion.div>
 
-        {/* READING CONTENT */}
-        <div className="space-y-32"> {/* Increased inner spacing for readability */}
+        <div className="space-y-32"> 
           
           <motion.section 
             initial={{ opacity: 0, y: 30 }}
@@ -110,7 +100,6 @@ export default function CaseStudyPage() {
             </div>
           </motion.section>
 
-          {/* CODE BLOCK SECTION */}
           <motion.section 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -127,15 +116,14 @@ export default function CaseStudyPage() {
                 <pre className="p-8 font-mono text-xs md:text-sm text-slate-300 overflow-x-auto leading-relaxed">
                   <code>
                     {`export default async function middleware(req: Request) {
-  const { region } = req.geo;
-  
-  // Dynamic Edge Sharding Protocol
-  return TechConnect.route(req, {
-    target: \`db-\${region}.internal\`,
-    fallback: 'core-master.internal',
-    security: 'SOC2-Encrypted'
-  });
-}`}
+                    const { region } = req.geo;
+                    // Dynamic Edge Sharding Protocol
+                    // return TechConnect.route(req, {
+                    // target: \`db-\${region}.internal\`,
+                    // fallback: 'core-master.internal',
+                    // security: 'SOC2-Encrypted'}
+                    // );}`}
+
                   </code>
                 </pre>
               </div>
