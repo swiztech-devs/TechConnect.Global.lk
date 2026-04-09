@@ -3,7 +3,7 @@
 import React, { useState, useRef } from 'react'
 import { motion, AnimatePresence, Variants } from 'framer-motion'
 import { Button } from '@/Components/ui/Button'
-import { ArrowRight, CheckCircle2, Phone, MapPin, Mail, Headset, AlertTriangle, Navigation, Globe } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Phone, MapPin, Mail, AlertTriangle, Navigation, Globe } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 
 export default function ContactPage() {
@@ -53,17 +53,8 @@ export default function ContactPage() {
     }
   }
 
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
-    }
-  }
-
   return (
-    <main className="relative w-full min-h-screen bg-[#020314] pt-44 selection:bg-[#4A89C8]/30 text-white">
+    <main className="relative w-full min-h-screen bg-[#020314] pt-64 selection:bg-[#4A89C8]/30 text-white">
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#2B2E83]/10 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 pb-32">
@@ -134,38 +125,41 @@ export default function ContactPage() {
           <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="lg:col-span-5 space-y-12">
             <div className="group flex items-start gap-8">
               <div className="p-5 rounded-2xl bg-white/5 border border-white/10 group-hover:border-[#4A89C8]/50 transition-colors">
-                <Headset className="w-6 h-6 text-[#4A89C8]" />
-              </div>
-              <div>
-                <h3 className="font-bold text-xl mb-3 uppercase tracking-tight">Technical Support</h3>
-                <p className="text-slate-500 text-sm leading-relaxed mb-4 font-light">Existing deployments: Access your instance or trigger a priority ticket.</p>
-                <a href="/console" className="text-[#4A89C8] text-[10px] font-black uppercase tracking-[0.3em] flex items-center gap-2 hover:gap-4 transition-all group/link">Console Access <ArrowRight className="w-3 h-3 group-hover/link:translate-x-1 transition-transform" /></a>
-              </div>
-            </div>
-
-            <div className="h-px w-full bg-white/5" />
-
-            <div className="group flex items-start gap-8">
-              <div className="p-5 rounded-2xl bg-white/5 border border-white/10 group-hover:border-[#4A89C8]/50 transition-colors">
                 <MapPin className="w-6 h-6 text-[#4A89C8]" />
               </div>
-              <div className="space-y-6 flex-1">
+              <div className="space-y-8 flex-1">
                 <div>
                   <h3 className="font-bold text-xl mb-3 uppercase tracking-tight">Global Headquarters</h3>
                   <p className="text-[10px] font-black text-slate-600 uppercase tracking-widest mb-2">Primary Location</p>
                   <p className="text-white text-sm font-light leading-relaxed">No 93, Kynsey Road,<br />Colombo 08, Sri Lanka.</p>
                 </div>
-                <div>
-                  <p className="text-[10px] font-black text-slate-600 uppercase tracking-widest mb-2">Direct Terminal</p>
-                  <a href="tel:+94707993375" className="text-white text-sm font-light hover:text-[#4A89C8] transition-colors flex items-center gap-2">
-                    <Phone className="w-3 h-3" /> +94 70 799 3375
-                  </a>
-                </div>
-                <div>
-                  <p className="text-[10px] font-black text-slate-600 uppercase tracking-widest mb-2">Electronic Correspondence</p>
-                  <a href="mailto:info@techconnect.global" className="text-white text-sm font-light hover:text-[#4A89C8] transition-colors flex items-center gap-2">
-                    <Mail className="w-3 h-3" /> info@techconnect.global
-                  </a>
+
+                <div className="h-px w-full bg-white/5" />
+
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-[#4A89C8]">
+                      <Phone className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-black text-slate-600 uppercase tracking-widest mb-1">Direct Terminal</p>
+                      <a href="tel:+94707993375" className="text-white text-sm font-light hover:text-[#4A89C8] transition-colors">
+                        +94 70 799 3375
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-[#4A89C8]">
+                      <Mail className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-black text-slate-600 uppercase tracking-widest mb-1">Electronic Correspondence</p>
+                      <a href="mailto:info@techconnect.global" className="text-white text-sm font-light hover:text-[#4A89C8] transition-colors">
+                        info@techconnect.global
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -173,13 +167,12 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* --- UPDATED MIDDLE MAP SECTION --- */}
+      {/* --- MIDDLE MAP SECTION --- */}
       <section className="relative w-full h-[500px] mt-12 bg-[#05061b] border-y border-white/5 overflow-hidden rounded-[3rem]">
         <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_150px_rgba(2,3,20,1)]" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#05061b] to-transparent pointer-events-none" />
         <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#05061b] to-transparent pointer-events-none" />
 
-        {/* Map Header Overlay */}
         <div className="absolute top-10 left-1/2 -translate-x-1/2 z-20 w-full max-w-7xl px-6">
           <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-[#020314]/80 backdrop-blur-xl border border-white/10 shadow-2xl">
             <Globe className="w-4 h-4 text-[#4A89C8]" />
@@ -187,7 +180,6 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* Google Maps Embed */}
         <div className="w-full h-full rounded-[3rem] overflow-hidden">
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7836372138!2d79.87114237582964!3d6.916464818464366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2590bd7f8674d%3A0x6b864a6f95f4c405!2s93%20Kynsey%20Rd%2C%20Colombo+0800!5e0!3m2!1sen!2slk!4v1711200000000!5m2!1sen!2slk"
@@ -201,7 +193,6 @@ export default function ContactPage() {
           />
         </div>
 
-        {/* Floating Navigation Button */}
         <div className="absolute bottom-10 right-10 z-20">
           <a 
             href="https://www.google.com/maps?q=93+Kynsey+Rd,+Colombo+08,+Sri+Lanka" 

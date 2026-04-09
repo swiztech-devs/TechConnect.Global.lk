@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
   ShieldCheck, 
@@ -70,7 +71,6 @@ export default function OurClients() {
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#4A89C8]/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         
-        {/* --- HEADER SECTION --- */}
         <div className="max-w-4xl mb-24">
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
@@ -95,7 +95,6 @@ export default function OurClients() {
           </p>
         </div>
 
-        {/* --- LOGO GRID --- */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 border border-white/10 rounded-[3rem] overflow-hidden shadow-2xl">
           {CLIENTS.map((client, index) => (
             <motion.div 
@@ -123,7 +122,6 @@ export default function OurClients() {
           ))}
         </div>
 
-        {/* --- METRICS SECTION --- */}
         <div className="grid md:grid-cols-3 gap-12 mt-32">
           {[
             { icon: Globe2, title: "Operational Reach", text: "Empowering Sri Lankan enterprises with world-class engineering standards and robust digital architectures." },
@@ -178,7 +176,6 @@ export default function OurClients() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Manual Switch Controls */}
           <div className="absolute bottom-10 right-10 flex gap-4">
              <button 
                onClick={() => setActiveTestimonial((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)}
@@ -195,17 +192,18 @@ export default function OurClients() {
           </div>
         </div>
 
-        {/* --- CTA SECTION --- */}
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           className="mt-32 py-20 border-t border-white/10 text-center"
         >
           <h4 className="text-3xl md:text-6xl font-bold text-white mb-8 tracking-tighter">Ready to join the elite?</h4>
-          <button className="inline-flex items-center gap-4 px-12 py-6 rounded-full bg-white text-black font-black text-[13px] uppercase tracking-[0.3em] hover:bg-[#4A89C8] hover:text-white transition-all duration-500 group shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-            Start Your Project
-            <ArrowUpRight className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-          </button>
+          <Link href="/contact">
+            <button className="inline-flex items-center gap-4 px-12 py-6 rounded-full bg-white text-black font-black text-[13px] uppercase tracking-[0.3em] hover:bg-[#4A89C8] hover:text-white transition-all duration-500 group shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+              Start Your Project
+              <ArrowUpRight className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </button>
+          </Link>
         </motion.div>
 
       </div>

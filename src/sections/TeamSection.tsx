@@ -1,10 +1,10 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 import { motion, Variants } from 'framer-motion'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { ShieldCheck, Mail } from 'lucide-react'
-
 
 const TEAM_MEMBERS = [
   { name: "Marcus Sterling", role: "Chief Architect", credentials: "MSc SE, OCPJP", image: "/img/team/male.jpg", category: "Leadership" },
@@ -43,7 +43,6 @@ export function TeamSection() {
       
       <div className="max-w-[1600px] mx-auto px-6 relative z-10">
         
-        {/* --- HEADER --- */}
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20 max-w-7xl mx-auto">
           <div className="max-w-2xl">
             <motion.div 
@@ -68,7 +67,6 @@ export function TeamSection() {
           </p>
         </div>
 
-        {/* --- TEAM GRID --- */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -85,7 +83,6 @@ export function TeamSection() {
               <div className="relative p-[1px] rounded-[1.5rem] bg-gradient-to-b from-white/10 to-transparent overflow-hidden transition-all duration-500 group-hover:shadow-[0_20px_40px_rgba(43,46,131,0.15)]">
                 <div className="relative bg-[#05061b] rounded-[1.5rem] overflow-hidden">
                   
-                  {/* Image Container */}
                   <div className="relative h-60 w-full overflow-hidden">
                     <img 
                       src={member.image} 
@@ -94,13 +91,11 @@ export function TeamSection() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#05061b] via-transparent to-transparent opacity-80" />
                     
-                    {/* Floating Category Badge */}
                     <div className="absolute top-4 right-4 px-2 py-0.5 rounded-md bg-black/40 backdrop-blur-md border border-white/10 text-[8px] font-black uppercase tracking-widest text-white opacity-0 group-hover:opacity-100 transition-opacity">
                       {member.category}
                     </div>
                   </div>
 
-                  {/* Info Section */}
                   <div className="p-5 space-y-3">
                     <div>
                       <h3 className="text-base font-bold text-white tracking-tight truncate">{member.name}</h3>
@@ -128,7 +123,6 @@ export function TeamSection() {
           ))}
         </motion.div>
 
-        {/* --- FOOTER CTA --- */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -138,9 +132,11 @@ export function TeamSection() {
             <h4 className="text-xl font-bold text-white mb-2 tracking-tight">Ready to expand your roadmap?</h4>
             <p className="text-slate-500 text-sm font-light">Join the engineers building the next generation of global software.</p>
           </div>
-          <button className="px-10 py-4 rounded-full bg-white text-black font-black text-[10px] uppercase tracking-widest hover:bg-[#4A89C8] hover:text-white transition-all shadow-xl">
-            View Open Roles
-          </button>
+          <Link href="/company-overview">
+            <button className="px-10 py-4 rounded-full bg-white text-black font-black text-[10px] uppercase tracking-widest hover:bg-[#4A89C8] hover:text-white transition-all shadow-xl">
+              View Open Roles
+            </button>
+          </Link>
         </motion.div>
 
       </div>

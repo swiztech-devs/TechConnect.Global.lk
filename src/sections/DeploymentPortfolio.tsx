@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
 import { ExternalLink, ArrowRight } from "lucide-react";
 
@@ -66,12 +67,14 @@ export function DeploymentPortfolio() {
             </p>
           </motion.div>
           
-          <motion.button 
-            whileHover={{ x: 10 }}
-            className="flex items-center gap-4 text-white font-bold tracking-[0.2em] uppercase text-[10px] border-b border-[#4A89C8]/50 pb-2 transition-all group"
-          >
-            Explore Portfolio <ArrowRight className="w-4 h-4 text-[#4A89C8] group-hover:translate-x-2 transition-transform" />
-          </motion.button>
+          <Link href="/our-projects">
+            <motion.button 
+              whileHover={{ x: 10 }}
+              className="flex items-center gap-4 text-white font-bold tracking-[0.2em] uppercase text-[10px] border-b border-[#4A89C8]/50 pb-2 transition-all group"
+            >
+              Explore Portfolio <ArrowRight className="w-4 h-4 text-[#4A89C8] group-hover:translate-x-2 transition-transform" />
+            </motion.button>
+          </Link>
         </header>
 
         <motion.div 
@@ -87,7 +90,6 @@ export function DeploymentPortfolio() {
               variants={projectVariants}
               className="group relative"
             >
-             
               <div className="relative aspect-[16/11] overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 shadow-2xl">
                 <motion.div 
                   whileHover={{ scale: 1.1 }}
@@ -98,7 +100,6 @@ export function DeploymentPortfolio() {
                     backgroundColor: '#1a1b26'
                   }}
                 >
-                  
                   <div className="absolute inset-0 bg-[#020314]/50 group-hover:bg-[#020314]/20 transition-colors duration-500" />
                 </motion.div>
 

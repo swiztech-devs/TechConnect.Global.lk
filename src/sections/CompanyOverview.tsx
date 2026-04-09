@@ -2,87 +2,9 @@
 
 import React, { useRef } from 'react';
 import { motion, useInView, Variants } from 'framer-motion';
-import { Shield, Zap, Cpu, Globe, Download, FileText } from 'lucide-react';
+import { Download, FileText } from 'lucide-react';
 import { Button } from '@/Components/ui/Button';
 
-const ArchitectureVisual = () => {
-  return (
-    <div className="relative w-full aspect-square max-w-[500px] mx-auto flex items-center justify-center">
-      <motion.div
-        animate={{
-          scale: [1, 1.15, 1],
-          opacity: [0.15, 0.3, 0.15],
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="absolute w-[60%] h-[60%] bg-[#4A89C8] blur-[100px] rounded-full pointer-events-none"
-      />
-
-      <motion.div 
-        animate={{ rotate: 360 }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute w-full h-full rounded-full border border-dashed border-[#4A89C8]/10" 
-      />
-      
-      <motion.div 
-        animate={{ 
-          rotate: -360,
-          scale: [1, 1.03, 1] 
-        }}
-        transition={{ 
-          rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-          scale: { duration: 3, repeat: Infinity, ease: "easeInOut" }
-        }}
-        className="absolute w-[75%] h-[75%] rounded-full border border-[#2B2E83]/20 shadow-[0_0_40px_rgba(43,46,131,0.05)]" 
-      />
-
-      <div className="relative z-10 grid grid-cols-2 gap-6">
-        {[
-          { icon: <Shield className="w-6 h-6" />, label: "Security", color: "bg-[#2B2E83]" },
-          { icon: <Zap className="w-6 h-6" />, label: "Velocity", color: "bg-[#4A89C8]" },
-          { icon: <Cpu className="w-6 h-6" />, label: "Edge", color: "bg-[#2B2E83]" },
-          { icon: <Globe className="w-6 h-6" />, label: "Scale", color: "bg-[#4A89C8]" },
-        ].map((node, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            animate={{ y: [0, -10, 0] }}
-            transition={{
-              delay: i * 0.2,
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className={`${node.color} p-7 rounded-[2.5rem] border border-white/10 flex flex-col items-center gap-3 shadow-[0_20px_50px_rgba(0,0,0,0.3)] backdrop-blur-md group`}
-          >
-            <motion.div 
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: i * 0.5 }}
-              className="text-white"
-            >
-              {node.icon}
-            </motion.div>
-            <span className="text-[9px] font-black uppercase tracking-[0.3em] text-white/50 group-hover:text-white transition-colors">
-              {node.label}
-            </span>
-          </motion.div>
-        ))}
-      </div>
-
-      <motion.div 
-        animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.8, 0.4] }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute w-4 h-4 bg-white rounded-full shadow-[0_0_30px_#4A89C8]"
-      />
-    </div>
-  );
-};
-
-// --- MAIN COMPONENT ---
 export function CompanyOverview() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -101,6 +23,47 @@ export function CompanyOverview() {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
   };
+
+  const imageContainerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
+    }
+  };
+
+  const imageItemVariants: Variants = {
+    hidden: { opacity: 0, scale: 0.8, y: 30 },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      y: 0,
+      transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } 
+    }
+  };
+
+  const OVERVIEW_GALLERY = [
+    {
+      title: "Precision Engineering",
+      src: "/img/team/engineering.jpg",
+      span: "col-span-1 row-span-1"
+    },
+    {
+      title: "Cloud Infrastructure",
+      src: "/img/team/cloud.jpg",
+      span: "col-span-1 row-span-2"
+    },
+    {
+      title: "IoT Intelligence",
+      src: "/img/team/iot.jpg",
+      span: "col-span-1 row-span-2"
+    },
+    {
+      title: "Secure Scaling",
+      src: "/img/team/secure.jpeg",
+      span: "col-span-1 row-span-1"
+    }
+  ];
 
   return (
     <section ref={ref} className="relative py-32 bg-[#020314] overflow-hidden">
@@ -158,11 +121,31 @@ export function CompanyOverview() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+            variants={imageContainerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="grid grid-cols-2 grid-rows-3 gap-4 h-[600px]"
           >
-            <ArchitectureVisual />
+            {OVERVIEW_GALLERY.map((item, index) => (
+              <motion.div
+                key={index}
+                variants={imageItemVariants}
+                className={`${item.span} relative group rounded-3xl overflow-hidden border border-white/5`}
+              >
+                <img 
+                  src={item.src} 
+                  alt={item.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020314] via-transparent to-transparent opacity-50 group-hover:opacity-30 transition-opacity" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <h4 className="text-white font-black uppercase tracking-[0.2em] text-[10px] transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                    {item.title}
+                  </h4>
+                </div>
+                <div className="absolute inset-0 border border-white/10 rounded-3xl pointer-events-none group-hover:border-[#4A89C8]/50 transition-colors duration-500" />
+              </motion.div>
+            ))}
           </motion.div>
 
         </div>

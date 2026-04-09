@@ -1,10 +1,7 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from 'react';
-import Link from 'next/link';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { ArrowRight, PlayCircle } from 'lucide-react';
-import { Button } from '@/Components/ui/Button';
 
 const videoSources = [
   "/Videos/Hero-V-1.mp4", 
@@ -36,7 +33,6 @@ export default function Hero() {
       ref={containerRef}
       className="relative min-h-[100vh] w-full flex flex-col items-center justify-center overflow-hidden bg-[#020314]"
     >
-      {/* --- BACKGROUND LAYER --- */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#020314]/80 via-transparent to-[#020314]" />
         <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,transparent_0%,#020314_90%)]" />
@@ -59,13 +55,10 @@ export default function Hero() {
         </AnimatePresence>
       </div>
 
-      {/* --- MAIN CONTENT CONTAINER --- */}
-
       <motion.div
         style={{ opacity, scale }}
         className="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-8 flex flex-col items-center text-center pt-64 pb-20"
       >
-        {/* Sub-heading */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -78,7 +71,6 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* Main Title */}
         <div className="space-y-8 max-w-5xl">
           <motion.h1
             initial={{ opacity: 0, filter: "blur(20px)", y: 40 }}
@@ -103,28 +95,6 @@ export default function Hero() {
           </motion.p>
         </div>
 
-        {/* Action Callouts */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-8"
-        >
-          <Link href="/contact">
-            <Button className="h-16 px-12 bg-[#2B2E83] hover:bg-[#3b3ec4] text-white rounded-full text-lg font-bold transition-all duration-500 hover:scale-105 shadow-[0_0_40px_rgba(43,46,131,0.3)] border-none">
-              Start Integration <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-          </Link>
-
-          <button className="flex items-center gap-4 text-white hover:text-[#4A89C8] transition-all group">
-            <div className="p-4 rounded-full border border-white/10 group-hover:border-[#4A89C8]/40 bg-white/[0.02] transition-all">
-              <PlayCircle className="w-7 h-7" />
-            </div>
-            <span className="font-semibold tracking-wide text-lg">Watch Capabilities</span>
-          </button>
-        </motion.div>
-
-        {/* Footer Metrics */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.4 }}

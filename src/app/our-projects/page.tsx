@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useMemo } from 'react'
+import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
   ExternalLink, 
@@ -12,6 +13,7 @@ import {
   ArrowUpRight 
 } from 'lucide-react'
 import { FaGithub } from 'react-icons/fa'
+
 const CATEGORIES = ["All", "Core ERP", "Edge IoT", "Cloud Native", "BPO Solutions"]
 
 const PROJECTS = [
@@ -87,7 +89,6 @@ export default function ProjectsPage() {
   const [filter, setFilter] = useState("All")
   const [searchQuery, setSearchQuery] = useState("")
 
-  // Search and Filter Logic
   const filteredProjects = useMemo(() => {
     return PROJECTS.filter((project) => {
       const matchesCategory = filter === "All" || project.category === filter;
@@ -107,7 +108,6 @@ export default function ProjectsPage() {
 
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         
-        {/* --- HEADER --- */}
         <div className="max-w-3xl mb-20">
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6">
             <ShieldCheck className="w-3.5 h-3.5 text-[#4A89C8]" />
@@ -122,7 +122,6 @@ export default function ProjectsPage() {
           </p>
         </div>
 
-        {/* --- FILTER & SEARCH BAR --- */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-16 border-b border-white/5 pb-10">
           <div className="flex flex-wrap gap-2">
             {CATEGORIES.map((cat) => (
@@ -154,7 +153,6 @@ export default function ProjectsPage() {
           </div>
         </div>
 
-        {/* --- PROJECTS GRID --- */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 min-h-[400px]">
           <AnimatePresence mode='popLayout'>
             {filteredProjects.length > 0 ? (
@@ -222,16 +220,17 @@ export default function ProjectsPage() {
           </AnimatePresence>
         </motion.div>
 
-        {/* --- CTA FOOTER --- */}
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="mt-32 p-12 rounded-[3rem] bg-gradient-to-r from-white/[0.02] to-transparent border border-white/5 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
           <div>
             <h4 className="text-2xl font-bold text-white mb-2 tracking-tight">Need an MVP in record time?</h4>
             <p className="text-slate-500 text-sm font-light">Join other founders building with TechConnect Global in 2026.</p>
           </div>
-          <button className="flex items-center gap-3 px-10 py-5 rounded-full bg-white text-black font-black text-[11px] uppercase tracking-[0.2em] hover:bg-[#4A89C8] hover:text-white transition-all group">
-            Start Your Build
-            <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-          </button>
+          <Link href="/contact">
+            <button className="flex items-center gap-3 px-10 py-5 rounded-full bg-white text-black font-black text-[11px] uppercase tracking-[0.2em] hover:bg-[#4A89C8] hover:text-white transition-all group">
+              Start Your Build
+              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </button>
+          </Link>
         </motion.div>
 
       </div>
