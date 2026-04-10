@@ -155,8 +155,8 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="text-[10px] font-black text-slate-600 uppercase tracking-widest mb-1">Electronic Correspondence</p>
-                      <a href="mailto:info@techconnect.global" className="text-white text-sm font-light hover:text-[#4A89C8] transition-colors">
-                        info@techconnect.global
+                      <a href="mailto:pm@mediconnect.com.lk" className="text-white text-sm font-light hover:text-[#4A89C8] transition-colors">
+                        pm@mediconnect.com.lk
                       </a>
                     </div>
                   </div>
