@@ -106,7 +106,6 @@ export function Testimonials() {
           </AnimatePresence>
         </div>
 
-        {/* PAGE INDICATOR DOTS */}
         <div className="flex justify-center gap-2 mt-12">
           {[...Array(totalPages)].map((_, i) => (
             <div 
