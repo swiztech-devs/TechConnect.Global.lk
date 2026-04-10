@@ -1,14 +1,15 @@
 "use client";
 
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useInView, Variants } from 'framer-motion';
 import { Download, FileText } from 'lucide-react';
 import { Button } from '@/Components/ui/Button';
 
-
 const NetworkBackground = () => {
-  const particles = useMemo(() => {
-    return Array.from({ length: 20 }).map(() => ({
+  const [particles, setParticles] = useState<any[]>([]);
+
+  useEffect(() => {
+    const generated = Array.from({ length: 20 }).map(() => ({
       x: Math.random() * 100,
       y: Math.random() * 100,
       x2: Math.random() * 100,
@@ -16,11 +17,12 @@ const NetworkBackground = () => {
       opacity: Math.random() * 0.5,
       duration: Math.random() * 10 + 10,
     }));
+
+    setParticles(generated);
   }, []);
 
   return (
     <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-40">
-
       <div 
         className="absolute inset-0" 
         style={{
@@ -28,7 +30,7 @@ const NetworkBackground = () => {
           backgroundSize: '40px 40px'
         }}
       />
-      
+
       {particles.map((p, i) => (
         <motion.div
           key={i}
