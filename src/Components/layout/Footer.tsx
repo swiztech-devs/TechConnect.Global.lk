@@ -48,7 +48,6 @@ const FOOTER_NAV = [
 export function Footer() {
   return (
     <footer className="relative bg-[#020314] text-white pt-24 pb-12 overflow-hidden border-t border-white/5">
-      {/* Background Ambience Glows */}
       <div className="absolute top-0 left-1/4 w-[600px] h-[300px] bg-[#2B2E83]/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#4A89C8]/5 blur-[100px] rounded-full pointer-events-none" />
 
@@ -88,8 +87,8 @@ export function Footer() {
             <div className="flex gap-4 pt-2">
               {[
                 { icon: FaTwitter, href: "#" },
-                { icon: FaLinkedin, href: "https://linkedin.com/company/techconnect" },
-                { icon: FaGithub, href: "https://github.com/techconnect" }
+                { icon: FaLinkedin, href: "#" },
+                { icon: FaGithub, href: "#" }
               ].map((social, i) => (
                 <a 
                   key={i} 
