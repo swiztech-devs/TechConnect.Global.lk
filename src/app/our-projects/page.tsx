@@ -21,66 +21,78 @@ const PROJECTS = [
     id: 1,
     title: "AgroStream ERP MVP",
     category: "Core ERP",
-    image: "https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?q=80&w=2070",
+    image: "/img/projects/AgroStream.jpeg",
     client: "Lanka Agri-Tech",
     stack: ["Next.js", "PostgreSQL", "Prisma"],
     outcome: "Streamlined 15+ farm sites",
     time: "3 Months",
+    github: "#",
+    live: "#",
     description: "A lightweight, modular ERP built for a local agricultural startup to manage fertilizer distribution and harvest tracking via mobile."
   },
   {
     id: 2,
     title: "Smart Warehouse Beacon",
     category: "Edge IoT",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070",
+    image: "/img/projects/Smart_Warehouse.jpeg",
     client: "Swift-Logistics",
     stack: ["ESP32", "Node.js", "Firebase"],
     outcome: "Reduced manual audit time by 70%",
     time: "4 Months",
+    github: "#",
+    live: "#",
     description: "Low-cost IoT sensor deployment using Bluetooth beacons to track high-value asset movement within small-scale distribution centers."
   },
   {
     id: 3,
     title: "EcoDrive Serverless SaaS",
     category: "Cloud Native",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072",
+    image: "/img/projects/EcoDrive.jpeg",
     client: "EcoDrive Global",
     stack: ["AWS Lambda", "React", "Tailwind"],
     outcome: "Zero infra costs during dev",
     time: "5 Months",
+    github: "#",
+    live: "#",
     description: "A cloud-native carbon footprint calculator for logistics fleets, scaling from zero to 5,000 requests per second instantly."
   },
   {
     id: 4,
     title: "Tech-Ops Outsourcing",
     category: "BPO Solutions",
-    image: "https://images.unsplash.com/photo-1549923746-c502d488b3ea?q=80&w=2071",
+    image: "/img/projects/Tech-Ops.jpeg",
     client: "HealthSync UK",
     stack: ["Freshdesk", "Zapier", "Slack"],
     outcome: "100% SLA compliance maintained",
     time: "Continuous",
+    github: "#",
+    live: "#",
     description: "Providing 24/7 level 1 technical support and database management for a UK-based healthcare startup."
   },
   {
     id: 5,
     title: "RetailCore Mini-ERP",
     category: "Core ERP",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
+    image: "/img/projects/RetailCore_Mini-ERP.jpeg",
     client: "Urban Fashion Hub",
     stack: ["React Native", "Node.js", "MongoDB"],
     outcome: "Integrated 5 boutique outlets",
     time: "4 Months",
+    github: "#",
+    live: "#",
     description: "A boutique-specific ERP focused on inventory alerts and cross-store stock transfers for small retail chains."
   },
   {
     id: 6,
     title: "Aura Home Automation",
     category: "Edge IoT",
-    image: "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=2070",
+    image: "/img/projects/Aura_Home_.jpeg",
     client: "Aura Smart Homes",
     stack: ["Arduino", "WebSocket", "Flutter"],
     outcome: "Launch ready in 16 weeks",
     time: "4 Months",
+    github: "#",
+    live: "#",
     description: "Rapid prototyping and software bridge for an IoT home lighting startup, enabling mobile control via secure real-time tunnels."
   }
 ]
@@ -91,15 +103,15 @@ export default function ProjectsPage() {
 
   const filteredProjects = useMemo(() => {
     return PROJECTS.filter((project) => {
-      const matchesCategory = filter === "All" || project.category === filter;
+      const matchesCategory = filter === "All" || project.category === filter
       const matchesSearch = 
         project.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
         project.client.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        project.description.toLowerCase().includes(searchQuery.toLowerCase());
+        project.description.toLowerCase().includes(searchQuery.toLowerCase())
       
-      return matchesCategory && matchesSearch;
-    });
-  }, [filter, searchQuery]);
+      return matchesCategory && matchesSearch
+    })
+  }, [filter, searchQuery])
 
   return (
     <section className="relative min-h-screen bg-[#020314] pt-64 pb-32 overflow-hidden">
@@ -167,13 +179,14 @@ export default function ProjectsPage() {
                   className="group relative"
                 >
                   <div className="relative h-full bg-white/[0.02] border border-white/5 rounded-[2.5rem] overflow-hidden hover:border-[#4A89C8]/30 transition-all duration-500 shadow-2xl">
+                    
                     <div className="relative h-64 w-full overflow-hidden">
                       <img 
-                        src={project.image} 
-                        alt={project.title} 
+                        src={project.image}
+                        alt={project.title}
                         className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
                         onError={(e) => {
-                          e.currentTarget.src = "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070";
+                          e.currentTarget.src = "/img/projects/fallback.jpg"
                         }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#020314] via-transparent to-transparent" />
@@ -187,8 +200,12 @@ export default function ProjectsPage() {
                           <h3 className="text-2xl font-bold text-white tracking-tight group-hover:text-[#4A89C8] transition-colors">{project.title}</h3>
                         </div>
                         <div className="flex gap-2">
-                          <a href="#" className="p-3 rounded-full bg-white/5 border border-white/10 text-white hover:bg-[#4A89C8] transition-all"><FaGithub size={16} /></a>
-                          <a href="#" className="p-3 rounded-full bg-white/5 border border-white/10 text-white hover:bg-[#4A89C8] transition-all"><ExternalLink size={16} /></a>
+                          <a href={project.github} target="_blank" className="p-3 rounded-full bg-white/5 border border-white/10 text-white hover:bg-[#4A89C8] transition-all">
+                            <FaGithub size={16} />
+                          </a>
+                          <a href={project.live} target="_blank" className="p-3 rounded-full bg-white/5 border border-white/10 text-white hover:bg-[#4A89C8] transition-all">
+                            <ExternalLink size={16} />
+                          </a>
                         </div>
                       </div>
 
@@ -206,7 +223,8 @@ export default function ProjectsPage() {
                       </div>
 
                       <div className="p-4 rounded-2xl bg-[#4A89C8]/5 border border-[#4A89C8]/10 flex items-center gap-3">
-                        <LineChart className="text-[#4A89C8]" size={16} /><span className="text-[10px] font-black uppercase tracking-widest text-slate-300">{project.outcome}</span>
+                        <LineChart className="text-[#4A89C8]" size={16} />
+                        <span className="text-[10px] font-black uppercase tracking-widest text-slate-300">{project.outcome}</span>
                       </div>
                     </div>
                   </div>
