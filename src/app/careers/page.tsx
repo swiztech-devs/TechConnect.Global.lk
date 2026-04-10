@@ -17,7 +17,6 @@ import {
 } from 'lucide-react'
 import { Button } from '@/Components/ui/Button'
 
-// 1. DATA DEFINITIONS
 const JOB_TYPES = ["All", "Full Time", "Remote", "Freelance", "Internship", "Part Time"]
 const DEPARTMENTS = ["All", "Engineering", "Creative", "Product", "Consultancy"]
 
@@ -55,13 +54,12 @@ export default function CareersSection() {
 
   return (
     <section className="relative min-h-screen bg-[#020314] pt-64 pb-32 overflow-hidden text-white">
-      {/* Background Ambience */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#2B2E83]/10 blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#4A89C8]/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         
-        {/* --- 1. HEADER --- */}
+        {/* --- HEADER --- */}
         <div className="max-w-4xl mb-24">
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-8">
             <Cpu className="w-3.5 h-3.5 text-[#4A89C8]" />
@@ -77,7 +75,7 @@ export default function CareersSection() {
           </p>
         </div>
 
-        {/* --- 2. FILTER & SEARCH --- */}
+        {/* --- FILTER & SEARCH --- */}
         <div className="bg-white/[0.02] border border-white/5 rounded-[3rem] p-8 md:p-12 mb-12 backdrop-blur-xl">
           <div className="grid lg:grid-cols-3 gap-10 items-end">
             
@@ -128,7 +126,7 @@ export default function CareersSection() {
           </div>
         </div>
 
-        {/* --- 3. JOB LISTING GRID --- */}
+        {/* --- JOB LISTING GRID --- */}
         <div className="space-y-4 min-h-[500px]">
           <AnimatePresence mode='wait'>
             {paginatedJobs.length > 0 ? (
@@ -158,7 +156,7 @@ export default function CareersSection() {
                   </div>
 
                   <div className="shrink-0">
-                    {/* BUTTON UPDATED: Outline default, white on hover, simple name */}
+                  
                     <Button className="h-16 px-10 rounded-full bg-transparent border border-white/20 text-white hover:bg-white hover:text-black hover:border-white transition-all font-black text-xs uppercase tracking-widest flex items-center gap-3 shadow-xl group/btn">
                       Apply Now <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                     </Button>
@@ -173,7 +171,7 @@ export default function CareersSection() {
           </AnimatePresence>
         </div>
 
-        {/* --- 4. PAGINATION --- */}
+        {/* --- PAGINATION --- */}
         {totalPages > 1 && (
           <div className="mt-16 flex items-center justify-center gap-6">
             <button 
@@ -204,7 +202,7 @@ export default function CareersSection() {
           </div>
         )}
 
-        {/* --- 5. GLOBAL CTA --- */}
+        {/* --- CTA --- */}
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="mt-40 p-12 md:p-20 rounded-[4rem] bg-gradient-to-br from-[#2B2E83]/20 via-[#020314] to-transparent border border-white/10 flex flex-col lg:flex-row items-center justify-between gap-12 text-center lg:text-left shadow-2xl">
           <div className="max-w-xl space-y-4">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">Can&apos;t find your stack?</h2>

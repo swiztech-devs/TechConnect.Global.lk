@@ -1,12 +1,23 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useMemo } from 'react';
 import { motion, useInView, Variants } from 'framer-motion';
 import { Download, FileText } from 'lucide-react';
 import { Button } from '@/Components/ui/Button';
 
-// --- BACKGROUND ANIMATION ---
+
 const NetworkBackground = () => {
+  const particles = useMemo(() => {
+    return Array.from({ length: 20 }).map(() => ({
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      x2: Math.random() * 100,
+      y2: Math.random() * 100,
+      opacity: Math.random() * 0.5,
+      duration: Math.random() * 10 + 10,
+    }));
+  }, []);
+
   return (
     <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-40">
 
@@ -18,23 +29,22 @@ const NetworkBackground = () => {
         }}
       />
       
-  
-      {[...Array(20)].map((_, i) => (
+      {particles.map((p, i) => (
         <motion.div
           key={i}
           className="absolute w-1 h-1 bg-[#4A89C8] rounded-full"
           initial={{ 
-            x: Math.random() * 100 + "%", 
-            y: Math.random() * 100 + "%",
-            opacity: Math.random() * 0.5
+            x: `${p.x}%`, 
+            y: `${p.y}%`,
+            opacity: p.opacity
           }}
           animate={{
-            y: [null, Math.random() * 100 + "%"],
-            x: [null, Math.random() * 100 + "%"],
+            x: [`${p.x}%`, `${p.x2}%`],
+            y: [`${p.y}%`, `${p.y2}%`],
             opacity: [0, 0.8, 0],
           }}
           transition={{
-            duration: Math.random() * 10 + 10,
+            duration: p.duration,
             repeat: Infinity,
             ease: "linear"
           }}
@@ -162,7 +172,6 @@ export function CompanyOverview() {
             </motion.div>
           </motion.div>
 
-          {/* GALLERY GRID */}
           <motion.div
             variants={imageContainerVariants}
             initial="hidden"
@@ -181,7 +190,6 @@ export function CompanyOverview() {
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 
-
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020314] via-transparent to-transparent opacity-50 group-hover:opacity-30 transition-opacity" />
                 <motion.div 
                    animate={{ y: ["-100%", "200%"] }}
