@@ -17,18 +17,33 @@ import {
 } from 'lucide-react'
 
 const CLIENTS = [
-  { name: 'Dialog Axiata', logo: '/img/c-logo/Dialog-logo.png', industry: "Telecommunications" },
-  { name: 'John Keells Holdings', logo: '/img/c-logo/jkh.png', industry: "Conglomerate" },
-  { name: 'Hemas Holdings', logo: '/img/c-logo/hemas.jpg', industry: "Healthcare" },
-  { name: 'Commercial Bank', logo: '/img/c-logo/combank.png', industry: "Finance" },
-  { name: 'Hayleys PLC', logo: '/img/c-logo/hayleys.webp', industry: "Manufacturing" },
-  { name: 'MAS Holdings', logo: '/img/c-logo/mas.png', industry: "Apparel" },
-  { name: 'Brandix', logo: '/img/c-logo/brandix.png', industry: "Apparel" },
-  { name: 'Sampath Bank', logo: '/img/c-logo/sampath.png', industry: "Finance" },
-  { name: 'Hatton National Bank', logo: '/img/c-logo/hnb.png', industry: "Finance" },
-  { name: 'SriLankan Airlines', logo: '/img/c-logo/SriLankan_Airlines.png', industry: "Aviation" },
-  { name: 'Aitken Spence', logo: '/img/c-logo/aitken.png', industry: "Hospitality" },
-  { name: 'Softlogic', logo: '/img/c-logo/softlogic.jpg', industry: "Retail" },
+  { name: 'Kanrich Finance', logo: '/img/c-logo/Kanrich-logo.png', industry: "Finance" },
+  { name: 'Integra Rail Resources (IRR)', logo: '/img/c-logo/Irr.png', industry: "Industrial" },
+  { name: 'Luminara Lifestyle Pvt Ltd', logo: '/img/c-logo/Luminara-Lifestyle.png', industry: "Retail" },
+  { name: 'Daraz', logo: '/img/c-logo/Daraz.png', industry: "E-commerce" },
+  { name: 'A4 Tours', logo: '/img/c-logo/A4Tours.png', industry: "Tourism" },
+  { name: 'Luminara Sky Lounge Pvt Ltd', logo: '/img/c-logo/Luminara-Sky.png', industry: "Hospitality" },
+  { name: 'Luminara Global Pvt Ltd', logo: '/img/c-logo/Luminara-Global.png', industry: "Supply Chain" },
+  { name: 'VMP Agri', logo: '/img/c-logo/VMP.png', industry: "Agriculture" },
+  { name: 'Ansi Pol Travel', logo: '/img/c-logo/Ansi-Pol.png', industry: "Tourism" },
+  { name: 'Sevenseas Group', logo: '/img/c-logo/Sevenseas.png', industry: "Conglomerate" },
+  { name: 'YUSUF BHAI', logo: '/img/c-logo/yusuf-bhai.jpg', industry: "Finance" },
+  { name: 'GENIUS Hospital', logo: '/img/c-logo/Genius.png', industry: "Healthcare" },
+  { name: 'MEDI SHINE Hospital', logo: '/img/c-logo/medi-shine.png', industry: "Healthcare" },
+  { name: 'The Life Pharmacy', logo: '/img/c-logo/Life.png', industry: "Healthcare" },
+  { name: 'Medi Safe Medical Center', logo: '/img/c-logo/medisafe.png', industry: "Healthcare" },
+  { name: 'FPS Lanka Pvt Ltd', logo: '/img/c-logo/FPS-Lanka.png', industry: "Logistics" },
+  { name: 'Travel Investments', logo: '/img/c-logo/Travel-Investments.png', industry: "Tourism" },
+  { name: 'Swizt Global Recuritment', logo: '/img/c-logo/Swizt-Global.png', industry: "Human Resources" },
+  { name: 'ITNIOTECH', logo: '/img/c-logo/ITNIOTECH.png', industry: "Technology" },
+  { name: 'Pacific Cables', logo: '/img/c-logo/pacific-cables.png', industry: "Manufacturing" },
+  { name: 'RAASA', logo: '/img/c-logo/raasa.png', industry: "Retail" },
+  { name: 'SWIZT ALAMANA TRADING INTERNATIONAL', logo: '/img/c-logo/swizt-alamana-trading-international.png', industry: "Trading" },
+  { name: 'The Granton Group', logo: '/img/c-logo/granton.png', industry: "Marketing" },
+  { name: 'Dammika', logo: '/img/c-logo/Dammika-s.png', industry: "Personal" },
+  { name: 'TUBE MAKERS', logo: '/img/c-logo/tubemakers.png', industry: "Manufacturing" },
+  { name: 'MET FRAME', logo: '/img/c-logo/met.png', industry: "Manufacturing" },
+  { name: 'Track My Savings', logo: '/img/c-logo/TrackMySavings.png', industry: "Fintech" },
 ]
 
 const TESTIMONIALS = [
@@ -95,7 +110,7 @@ export default function OurClients() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 border border-white/10 rounded-[3rem] overflow-hidden shadow-2xl">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-px bg-white/10 border border-white/10 rounded-[3rem] overflow-hidden shadow-2xl">
           {CLIENTS.map((client, index) => (
             <motion.div 
               key={index}
@@ -110,7 +125,7 @@ export default function OurClients() {
                   alt={`${client.name} logo`}
                   width={140}
                   height={60}
-                  className="max-h-full object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] group-hover:scale-110 transition-all duration-500"
+                  className="max-h-full object-contain group-hover:scale-110 transition-all duration-500"
                 />
               </div>
               <div className="absolute bottom-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
@@ -177,18 +192,18 @@ export default function OurClients() {
           </AnimatePresence>
 
           <div className="absolute bottom-10 right-10 flex gap-4">
-             <button 
-               onClick={() => setActiveTestimonial((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)}
-               className="p-3 rounded-full border border-white/10 hover:bg-[#4A89C8] hover:border-[#4A89C8] transition-all"
-             >
-               <ChevronLeft size={20} />
-             </button>
-             <button 
-               onClick={() => setActiveTestimonial((prev) => (prev + 1) % TESTIMONIALS.length)}
-               className="p-3 rounded-full border border-white/10 hover:bg-[#4A89C8] hover:border-[#4A89C8] transition-all"
-             >
-               <ChevronRight size={20} />
-             </button>
+              <button 
+                onClick={() => setActiveTestimonial((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)}
+                className="p-3 rounded-full border border-white/10 hover:bg-[#4A89C8] hover:border-[#4A89C8] transition-all"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button 
+                onClick={() => setActiveTestimonial((prev) => (prev + 1) % TESTIMONIALS.length)}
+                className="p-3 rounded-full border border-white/10 hover:bg-[#4A89C8] hover:border-[#4A89C8] transition-all"
+              >
+                <ChevronRight size={20} />
+              </button>
           </div>
         </div>
 

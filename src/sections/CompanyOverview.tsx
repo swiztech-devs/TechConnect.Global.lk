@@ -61,10 +61,10 @@ export function CompanyOverview() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const handleDownload = () => {
-    const pdfUrl = "/documents/TechConnect-Global-Overview.pdf";
+    const pdfUrl = "/PDF/Company-Overview.pdf";
     const link = document.createElement("a");
     link.href = pdfUrl;
-    link.download = "TechConnect_Global_Overview.pdf";
+    link.download = "TechConnect-Global-Overview.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

@@ -7,25 +7,25 @@ import { ExternalLink, ArrowRight } from "lucide-react";
 
 const PROJECTS = [
   {
-    title: "Medi Connect Solutions",
-    category: "Hospital ERP & HIS",
-    description: "A comprehensive healthcare ecosystem managing patient flow and medical records at scale.",
-    image: "/img/project-1.jpeg", 
-    tags: ["Next.js", "Cloud", "ERP"]
+    title: "Enterprise Finance ERP",
+    category: "Core ERP",
+    description: "Total ERP solution with all modules deployed across 35 island-wide branches for Kanrich Finance.",
+    image: "/img/c-logo/Kanrich-logo.png", 
+    tags: ["Oracle", "Java", "FinTech"]
   },
   {
-    title: "Global Finance Hub",
-    category: "Master Budgeting System",
-    description: "High-precision financial forecasting and real-time budget tracking for enterprise clients.",
-    image: "/img/project-2.jpeg",
-    tags: ["React", "Analytics", "Security"]
+    title: "Heavy Industry Resource ERP",
+    category: "Core ERP",
+    description: "Full-scale enterprise resource planning system managing 1800+ employees for Integra Rail Resources.",
+    image: "/img/c-logo/Irr.png",
+    tags: ["Next.js", "PostgreSQL", "Scalable"]
   },
   {
-    title: "Nexus IoT Framework",
-    category: "Industrial Automation",
-    description: "Edge-computing infrastructure for real-time monitoring of global manufacturing assets.",
-    image: "/img/project-3.jpeg",
-    tags: ["IoT", "Node.js", "Edge"]
+    title: "Logistics Automation Hub",
+    category: "Specialized Modules",
+    description: "Advanced Warehouse Management and Distribution module architected for high-velocity e-commerce.",
+    image: "/img/c-logo/Daraz.png",
+    tags: ["Node.js", "Warehouse", "Logistics"]
   }
 ];
 
@@ -90,17 +90,16 @@ export function DeploymentPortfolio() {
               variants={projectVariants}
               className="group relative"
             >
-              <div className="relative aspect-[16/11] overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 shadow-2xl">
+              <div className="relative aspect-[16/11] overflow-hidden rounded-[2.5rem] border border-white/10 bg-white shadow-2xl flex items-center justify-center p-12">
                 <motion.div 
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.6 }}
-                  className="absolute inset-0 bg-cover bg-center"
+                  className="absolute inset-0 bg-contain bg-no-repeat bg-center m-12"
                   style={{ 
                     backgroundImage: `url(${project.image})`,
-                    backgroundColor: '#1a1b26'
                   }}
                 >
-                  <div className="absolute inset-0 bg-[#020314]/50 group-hover:bg-[#020314]/20 transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-white/10 group-hover:bg-transparent transition-colors duration-500" />
                 </motion.div>
 
                 <div className="absolute top-6 left-6 flex flex-wrap gap-2">

@@ -59,7 +59,6 @@ export default function ContactPage() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 pb-32">
         
-        {/* --- PAGE HEADER --- */}
         <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} className="max-w-3xl mb-24">
           <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8">
             <Phone className="w-3.5 h-3.5 text-[#4A89C8] animate-pulse" />
@@ -72,7 +71,6 @@ export default function ContactPage() {
 
         <div className="grid lg:grid-cols-12 gap-20 items-start">
           
-          {/* --- LEFT: CONTACT FORM --- */}
           <motion.div variants={containerVariants} initial="hidden" animate="visible" className="lg:col-span-7">
             <div className="relative group p-[1px] rounded-[2.5rem] bg-gradient-to-b from-white/10 to-transparent overflow-hidden shadow-2xl">
               <div className="relative bg-[#05061b] p-8 md:p-14 rounded-[2.5rem] backdrop-blur-3xl border border-white/5">
@@ -121,7 +119,6 @@ export default function ContactPage() {
             </div>
           </motion.div>
 
-          {/* --- RIGHT: SIDEBAR --- */}
           <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="lg:col-span-5 space-y-12">
             <div className="group flex items-start gap-8">
               <div className="p-5 rounded-2xl bg-white/5 border border-white/10 group-hover:border-[#4A89C8]/50 transition-colors">
@@ -129,8 +126,7 @@ export default function ContactPage() {
               </div>
               <div className="space-y-8 flex-1">
                 <div>
-                  <h3 className="font-bold text-xl mb-3 uppercase tracking-tight">Global Headquarters</h3>
-                  <p className="text-[10px] font-black text-slate-600 uppercase tracking-widest mb-2">Primary Location</p>
+                  <h3 className="font-bold text-xl mb-3 uppercase tracking-tight text-white">Office Terminal</h3>
                   <p className="text-white text-sm font-light leading-relaxed">No 93, Kynsey Road,<br />Colombo 08, Sri Lanka.</p>
                 </div>
 
@@ -167,7 +163,6 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* --- MIDDLE MAP SECTION --- */}
       <section className="relative w-full h-[500px] mt-12 bg-[#05061b] border-y border-white/5 overflow-hidden rounded-[3rem]">
         <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_150px_rgba(2,3,20,1)]" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#05061b] to-transparent pointer-events-none" />

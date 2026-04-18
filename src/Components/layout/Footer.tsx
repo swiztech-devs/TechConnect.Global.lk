@@ -10,10 +10,10 @@ const FOOTER_NAV = [
   { 
     title: 'Platform', 
     links: [
-      { name: 'About', href: '/about' },
-      { name: 'Our Services', href: '/services' },
-      { name: 'Our Projects', href: '/projects' },
-      { name: 'Our Clients', href: '/clients' }
+      { name: 'About', href: '/company-overview' },
+      { name: 'Our Services', href: '/service-details' },
+      { name: 'Our Projects', href: '/our-projects' },
+      { name: 'Our Clients', href: '/our-clients' }
     ] 
   },
   { 

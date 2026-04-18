@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "@/Components/layout/Navbar";
 import { Footer } from "@/Components/layout/Footer";
-import { ScrollToTop } from "@/Components/ScrollToTop";
+import { ScrollToTop } from "@/Components/ui/ScrollToTop";
 import { PageLoader } from "@/Components/ui/PageLoader";
 
 export const metadata: Metadata = {
@@ -23,17 +23,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen flex flex-col bg-background font-body text-slate-800 antialiased">
-        {/* Core UI Components */}
         <PageLoader />
-        <ScrollToTop />
         <Navbar />
         
-        {/* Main Content Area */}
         <div className="flex-grow">
           {children}
         </div>
         
         <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );
