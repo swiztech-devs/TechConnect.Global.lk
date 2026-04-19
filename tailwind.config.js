@@ -2,8 +2,8 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}", // This covers everything in src
-    "./Components/**/*.{js,ts,jsx,tsx}", // Added this to be safe based on your imports
+    "./src/**/*.{js,ts,jsx,tsx}", 
+    "./Components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
