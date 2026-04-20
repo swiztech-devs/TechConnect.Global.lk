@@ -69,16 +69,16 @@ export function TrustBar() {
           {ALL_LOGOS.map((company, i) => (
             <div key={i} className="flex items-center justify-center shrink-0">
               <div className="relative group">
-                <div className="absolute -inset-2 bg-white/5 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute -inset-2 bg-white/10 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
                 
-                <div className="relative h-16 md:h-20 w-36 md:w-44 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl flex items-center justify-center p-4 transition-all duration-500 hover:scale-105 hover:bg-white/20 hover:border-white/30 shadow-2xl">
+                <div className="relative h-16 md:h-20 w-36 md:w-44 bg-white border border-white rounded-2xl flex items-center justify-center p-4 transition-all duration-500 hover:scale-105 shadow-2xl">
                   <div className="relative h-full w-full">
                     <Image 
                       src={company.src} 
                       alt={`${company.name} logo`}
                       fill
                       sizes="(max-width: 768px) 144px, 176px"
-                      className="object-contain transition-all duration-500 group-hover:brightness-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.1)]"
+                      className="object-contain transition-all duration-500"
                     />
                   </div>
                 </div>

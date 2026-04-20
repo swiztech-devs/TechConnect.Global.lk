@@ -6,28 +6,32 @@ import { LayoutDashboard, Cpu, Cloud, Code2, ArrowUpRight } from "lucide-react";
 
 const SERVICES = [
   {
-    title: "Core ERP",
-    description: "Enterprise resource planning systems built for 2026 global scale.",
+    title: "ERPNext",
+    description: "Modern, open-source enterprise planning built for scalable business intelligence.",
     icon: <LayoutDashboard className="w-8 h-8" />,
-    bgImage: "/img/Service-1.png" 
+    bgImage: "/img/Service-1.png",
+    specs: "Core Platform"
   },
   {
     title: "Edge IoT",
     description: "Ultra-low latency industrial monitoring and smart device orchestration.",
     icon: <Cpu className="w-8 h-8" />,
-    bgImage: "/img/Service-2.png" 
+    bgImage: "/img/Service-2.png",
+    specs: "Real-time Logic"
   },
   {
     title: "Cloud Native",
     description: "Resilient serverless architectures and high-availability infrastructure.",
     icon: <Cloud className="w-8 h-8" />,
-    bgImage: "/img/Service-3.png" 
+    bgImage: "/img/Service-3.png",
+    specs: "Infra Protocol"
   },
   {
     title: "BPO Solutions",
     description: "Intelligent process outsourcing driven by AI and automated efficiency.",
     icon: <Code2 className="w-8 h-8" />,
-    bgImage: "/img/Service-4.png" 
+    bgImage: "/img/Service-4.png",
+    specs: "Velocity Ops"
   }
 ];
 
@@ -75,11 +79,10 @@ export function Services() {
           <motion.div 
             className="text-slate-500 font-black tracking-[0.4em] uppercase text-[10px] pb-2 border-b border-white/10"
           >
-            // 2026 Systems Architecture
+            // Systems Architecture
           </motion.div>
         </div>
 
-        {/* SERVICES GRID */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -94,7 +97,6 @@ export function Services() {
               whileHover={{ y: -20 }}
               className="group relative min-h-[450px] rounded-[2.5rem] overflow-hidden border border-white/5 flex flex-col p-8 transition-all duration-700"
             >
-              {/* --- IMAGE LAYER START --- */}
               <div 
                 className="absolute inset-0 z-0 transition-transform duration-1000 group-hover:scale-110"
                 style={{ 
@@ -103,20 +105,16 @@ export function Services() {
                   backgroundPosition: 'center'
                 }}
               >
-
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020314] via-[#020314]/80 to-[#020314]/40" />
               </div>
-              {/* --- IMAGE LAYER END --- */}
 
               <div className="relative z-10 flex flex-col h-full">
-                {/* Icon Box */}
                 <div className="mb-auto">
                   <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white backdrop-blur-xl group-hover:border-[#4A89C8]/50 group-hover:bg-[#4A89C8]/10 transition-all duration-500">
                     {service.icon}
                   </div>
                 </div>
 
-                {/* Content Area */}
                 <div className="mt-8 space-y-4">
                   <h3 className="text-3xl font-bold text-white tracking-tight group-hover:text-[#4A89C8] transition-colors">
                     {service.title}
@@ -128,7 +126,7 @@ export function Services() {
 
                   <div className="pt-6 flex items-center justify-between border-t border-white/5 mt-6">
                     <span className="text-[9px] uppercase tracking-[0.3em] text-[#4A89C8] font-black">
-                      Operational Specs
+                      {service.specs}
                     </span>
                     <div className="p-2 rounded-full bg-white/5 group-hover:bg-[#4A89C8] transition-all duration-500">
                       <ArrowUpRight className="w-4 h-4 text-white group-hover:scale-110" />

@@ -97,12 +97,12 @@ export default function Hero() {
 
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.4 }}
+          animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1.5 }}
           className="mt-32 pt-12 border-t border-white/5 w-full flex flex-wrap justify-center gap-x-12 gap-y-8"
         >
           {['ERP Solutions', 'IoT Architectures', 'Cloud Systems', 'BPO Excellence'].map((item) => (
-            <div key={item} className="text-[10px] uppercase tracking-[0.5em] text-white font-black hover:text-[#4A89C8] transition-colors cursor-default">
+            <div key={item} className="text-[11px] uppercase tracking-[0.5em] text-white font-black hover:text-[#4A89C8] transition-all cursor-default drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
               {item}
             </div>
           ))}

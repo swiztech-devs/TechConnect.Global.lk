@@ -110,14 +110,14 @@ export default function OurClients() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-px bg-white/10 border border-white/10 rounded-[3rem] overflow-hidden shadow-2xl">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
           {CLIENTS.map((client, index) => (
             <motion.div 
               key={index}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.02 }}
-              className="group relative bg-[#05061b] h-48 flex flex-col items-center justify-center p-8 hover:bg-white/[0.04] transition-all duration-500"
+              className="group relative bg-white h-48 flex flex-col items-center justify-center p-8 rounded-[2rem] border-2 border-[#4A89C8]/20 hover:border-[#4A89C8] transition-all duration-500 shadow-xl overflow-hidden"
             >
               <div className="relative h-16 w-full flex items-center justify-center">
                 <Image 
@@ -128,8 +128,8 @@ export default function OurClients() {
                   className="max-h-full object-contain group-hover:scale-110 transition-all duration-500"
                 />
               </div>
-              <div className="absolute bottom-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
-                <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#4A89C8] bg-black/50 px-2 py-1 rounded-md border border-white/10 backdrop-blur-md">
+              <div className="absolute bottom-4 translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                <span className="text-[9px] font-black uppercase tracking-[0.2em] text-white bg-[#4A89C8] px-3 py-1 rounded-full shadow-lg">
                   {client.industry}
                 </span>
               </div>

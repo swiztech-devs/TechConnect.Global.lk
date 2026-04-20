@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
   Database, 
@@ -13,7 +15,8 @@ import {
   CheckCircle2,
   Activity,
   Layers,
-  BarChart3
+  BarChart3,
+  Sparkles
 } from 'lucide-react'
 
 const SERVICES = [
@@ -21,16 +24,22 @@ const SERVICES = [
     id: 'erp',
     title: "Core ERP",
     icon: Database,
-    tagline: "Enterprise Resource Protocol",
-    description: "Centralize your entire business intelligence ecosystem. Our Core ERP solutions integrate finance, logistics, and human capital into a singular, real-time source of truth.",
-    detailedContent: "In an era of fragmented data, our ERP protocols eliminate silos. We specialize in bespoke implementations that synchronize global supply chains with local financial compliance.",
-    features: ["Real-Time Consolidation", "AI Forecasting", "Automated Compliance", "Inventory Sync"],
-    roadmap: [
-      { step: "01", task: "Architecture Audit", desc: "Mapping current data silos." },
-      { step: "02", task: "Logic Integration", desc: "Configuring the central core." },
-      { step: "03", task: "Global Deployment", desc: "Phased rollout across units." }
+    tagline: "Powered by ERPNext Platform",
+    description: "Centralize your business operations with our ERP solutions built on ERPNext. We integrate finance, inventory, sales, and human resources into a unified system, creating a reliable single source of truth.",
+    detailedContent: "We design and deploy customized ERP solutions using ERPNext’s modular architecture, ensuring scalability, flexibility, and standardized business workflows.",
+    features: [
+      "ERPNext Core Implementation", 
+      "Integrated Business Workflows", 
+      "Real-Time Data Visibility", 
+      "Inventory & Supply Chain Management",
+      "Custom Module Development"
     ],
-    stats: { efficiency: "+45%", accuracy: "99.9%" },
+    roadmap: [
+      { step: "01", task: "ERPNext Setup", desc: "System configuration and environment preparation." },
+      { step: "02", task: "Business Logic Integration", desc: "Custom workflows and module alignment." },
+      { step: "03", task: "Deployment & Scaling", desc: "Phased rollout across departments or branches." }
+    ],
+    stats: { scalability: "High", flexibility: "Open Source", workflow: "Standardized" },
     gradient: "from-blue-600/20 to-indigo-600/20"
   },
   {
@@ -46,7 +55,7 @@ const SERVICES = [
       { step: "02", task: "Edge Node Setup", desc: "Deploying localized compute." },
       { step: "03", task: "Data Visualization", desc: "Real-time fleet monitoring." }
     ],
-    stats: { response: "<10ms", uptime: "99.99%" },
+    stats: { response: "Low Latency", uptime: "99.99%", reliability: "Industrial" },
     gradient: "from-cyan-600/20 to-blue-600/20"
   },
   {
@@ -62,7 +71,7 @@ const SERVICES = [
       { step: "02", task: "Cluster Provisioning", desc: "Building the environment." },
       { step: "03", task: "Traffic Migration", desc: "Zero downtime cutover." }
     ],
-    stats: { scaling: "Instant", savings: "30%" },
+    stats: { scaling: "Instant", resource: "Optimized", security: "Cloud-Native" },
     gradient: "from-[#2B2E83]/40 to-blue-900/20"
   },
   {
@@ -78,7 +87,7 @@ const SERVICES = [
       { step: "02", task: "Quality Benchmarking", desc: "Establishing SLA KPIs." },
       { step: "03", task: "Handover", desc: "Full process management." }
     ],
-    stats: { coverage: "24/7", efficiency: "+50%" },
+    stats: { availability: "24/7", efficiency: "High", protocol: "Strict SLA" },
     gradient: "from-slate-800/40 to-blue-950/20"
   }
 ]
@@ -88,13 +97,10 @@ export default function ServiceDetails() {
 
   return (
     <section className="relative min-h-screen bg-[#020314] pt-64 pb-32 overflow-hidden">
-      
       <div className="absolute top-0 left-1/4 w-[800px] h-[600px] bg-[#2B2E83]/10 blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-[#4A89C8]/5 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        
-        {/* --- HEADER --- */}
         <div className="mb-20">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -115,7 +121,6 @@ export default function ServiceDetails() {
         </div>
 
         <div className="grid lg:grid-cols-[380px_1fr] gap-12 items-start">
-          
           <div className="flex flex-col gap-4">
             {SERVICES.map((service) => (
               <button
@@ -149,11 +154,10 @@ export default function ServiceDetails() {
                 }`} />
               </button>
             ))}
-            
             <div className="mt-8 p-8 rounded-[2.5rem] border border-white/5 bg-white/[0.02] hidden lg:block">
                <Activity className="w-5 h-5 text-[#4A89C8] mb-4" />
                <p className="text-[11px] text-slate-500 leading-relaxed font-medium">
-                 All services are delivered under strict ISO 27001 data security protocols and managed by our regional deployment centers.
+                 All services are delivered under strict security protocols and managed by regional deployment centers.
                </p>
             </div>
           </div>
@@ -185,10 +189,26 @@ export default function ServiceDetails() {
                   </div>
                 </div>
 
+                {activeTab.id === 'erp' && (
+                  <div className="mb-12 p-6 rounded-[2rem] bg-white/5 border border-white/10 flex flex-col md:flex-row items-center gap-8">
+                    <div className="shrink-0 relative w-24 h-24 rounded-2xl overflow-hidden bg-white p-4">
+                      <Image src="/img/ERPNEXT.jpg" alt="ERPNext Logo" fill className="object-contain p-2" />
+                    </div>
+                    <div>
+                      <h4 className="text-white font-bold flex items-center gap-2 uppercase tracking-widest text-sm mb-2">
+                        <Sparkles className="w-4 h-4 text-[#4A89C8]" /> Specialized Implementation
+                      </h4>
+                      <p className="text-slate-400 text-xs leading-relaxed max-w-lg">
+                        We leverage the <span className="text-white font-bold">Open-Source Advantage</span> of ERPNext to provide infinite customization and enterprise-grade scalability, aligning every module to your specific business logic.
+                      </p>
+                    </div>
+                  </div>
+                )}
+
                 <div className="grid md:grid-cols-2 gap-12 mb-16">
                   <div className="space-y-6">
                     <h4 className="text-xs font-black uppercase tracking-[0.3em] text-white/40 flex items-center gap-2">
-                       <Layers className="w-4 h-4" /> Technical Scope
+                       <Layers className="w-4 h-4" /> Technical Capabilities
                     </h4>
                     <div className="grid grid-cols-1 gap-3">
                       {activeTab.features?.map((feature, i) => (
@@ -220,12 +240,11 @@ export default function ServiceDetails() {
                   </div>
                 </div>
 
-                {/* Footer Data */}
                 <div className="mt-auto pt-10 border-t border-white/10 flex flex-col lg:flex-row items-center justify-between gap-10">
                   <div className="flex flex-wrap justify-center lg:justify-start gap-12">
                     {Object.entries(activeTab.stats || {}).map(([key, val], i) => (
                       <div key={i} className="text-center lg:text-left">
-                        <div className="text-3xl font-bold text-white mb-1">{val as string}</div>
+                        <div className="text-2xl font-bold text-white mb-1 uppercase tracking-tight">{val as string}</div>
                         <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest">
                           {key.replace(/([A-Z])/g, ' $1')}
                         </div>
@@ -233,14 +252,16 @@ export default function ServiceDetails() {
                     ))}
                   </div>
                   
-                  <motion.button 
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-3 px-10 py-5 rounded-full bg-white text-black font-black text-[11px] uppercase tracking-[0.2em] hover:bg-[#4A89C8] hover:text-white transition-all group shadow-2xl"
-                  >
-                    Initiate Discussion
-                    <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  </motion.button>
+                  <Link href="/contact">
+                    <motion.button 
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center gap-3 px-10 py-5 rounded-full bg-white text-black font-black text-[11px] uppercase tracking-[0.2em] hover:bg-[#4A89C8] hover:text-white transition-all group shadow-2xl"
+                    >
+                      Initiate Discussion
+                      <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    </motion.button>
+                  </Link>
                 </div>
               </motion.div>
             </AnimatePresence>
