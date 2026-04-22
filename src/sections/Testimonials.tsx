@@ -34,28 +34,26 @@ export function Testimonials() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
-        {/* HEADER SECTION */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-4"
+            className="space-y-4 text-left"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10">
               <Terminal className="w-3 h-3 text-[#4A89C8]" />
               <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Trusted Intelligence</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tighter">
+            <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tighter text-left">
               Verified <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4A89C8] to-white">Global Impact.</span>
             </h2>
           </motion.div>
 
-          {/* COUNTER & NAVIGATION */}
-          <div className="flex items-center gap-6">
-            <div className="flex flex-col items-end">
-              <span className="text-2xl font-black text-white leading-none">8+</span>
-              <span className="text-[9px] font-bold text-[#4A89C8] uppercase tracking-widest">Enterprise Reviews</span>
+          <div className="flex items-center gap-6 w-full md:w-auto justify-between md:justify-end">
+            <div className="flex flex-col items-start md:items-end">
+              <span className="text-2xl font-black text-white leading-none text-left md:text-right">8+</span>
+              <span className="text-[9px] font-bold text-[#4A89C8] uppercase tracking-widest text-left md:text-right">Enterprise Reviews</span>
             </div>
             <div className="flex gap-2">
               <button onClick={prevPage} className="p-4 rounded-2xl bg-white/5 border border-white/10 text-white hover:bg-[#4A89C8] transition-all">
@@ -68,7 +66,6 @@ export function Testimonials() {
           </div>
         </div>
 
-        {/* TESTIMONIAL GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[450px]">
           <AnimatePresence mode="wait">
             {currentReviews.map((item, idx) => (
@@ -78,27 +75,27 @@ export function Testimonials() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -20, scale: 0.95 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="group relative p-8 rounded-[2.5rem] bg-white/[0.03] border border-white/5 backdrop-blur-3xl hover:border-[#4A89C8]/30 transition-all"
+                className="group relative p-8 rounded-[2.5rem] bg-white/[0.03] border border-white/5 backdrop-blur-3xl hover:border-[#4A89C8]/30 transition-all text-left"
               >
                 <Quote className="absolute top-8 right-8 w-12 h-12 text-white/5 group-hover:text-[#4A89C8]/10 transition-colors" />
                 
-                <div className="flex gap-1 mb-6">
+                <div className="flex gap-1 mb-6 justify-start">
                   {[...Array(item.rating)].map((_, i) => (
                     <Star key={i} size={12} className="fill-[#4A89C8] text-[#4A89C8]" />
                   ))}
                 </div>
 
-                <p className="text-slate-300 text-lg font-light leading-relaxed mb-8 italic">
+                <p className="text-slate-300 text-lg font-light leading-relaxed mb-8 italic text-left">
                   &quot;{item.content}&quot;
                 </p>
 
-                <div className="flex items-center gap-4 border-t border-white/5 pt-6">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#2B2E83] to-[#4A89C8] flex items-center justify-center font-bold text-white shadow-lg">
+                <div className="flex items-center gap-4 border-t border-white/5 pt-6 justify-start">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#2B2E83] to-[#4A89C8] flex items-center justify-center font-bold text-white shadow-lg shrink-0">
                     {item.name[0]}
                   </div>
-                  <div>
-                    <h4 className="text-white font-bold tracking-tight">{item.name}</h4>
-                    <p className="text-[#4A89C8] text-[10px] font-black uppercase tracking-widest">{item.role}</p>
+                  <div className="text-left">
+                    <h4 className="text-white font-bold tracking-tight text-left">{item.name}</h4>
+                    <p className="text-[#4A89C8] text-[10px] font-black uppercase tracking-widest text-left">{item.role}</p>
                   </div>
                 </div>
               </motion.div>
@@ -106,7 +103,7 @@ export function Testimonials() {
           </AnimatePresence>
         </div>
 
-        <div className="flex justify-center gap-2 mt-12">
+        <div className="flex justify-center md:justify-start gap-2 mt-12">
           {[...Array(totalPages)].map((_, i) => (
             <div 
               key={i} 

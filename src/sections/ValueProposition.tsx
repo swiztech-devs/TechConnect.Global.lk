@@ -50,7 +50,6 @@ export function ValueProposition() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-24 items-center">
           
-          {/* LEFT: STRATEGIC CONTENT */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}

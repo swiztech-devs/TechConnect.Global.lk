@@ -43,8 +43,8 @@ export function TeamSection() {
       
       <div className="max-w-[1600px] mx-auto px-6 relative z-10">
         
-        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20 max-w-7xl mx-auto">
-          <div className="max-w-2xl">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-20 max-w-7xl mx-auto">
+          <div className="max-w-2xl text-left">
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -56,13 +56,13 @@ export function TeamSection() {
             <motion.h2 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="text-5xl md:text-7xl font-bold text-white tracking-tighter leading-none"
+              className="text-5xl md:text-7xl font-bold text-white tracking-tighter leading-none text-left"
             >
               Architects of <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4A89C8] to-white italic">Innovation.</span>
             </motion.h2>
           </div>
-          <p className="text-slate-400 font-light max-w-sm text-sm leading-relaxed border-l border-white/10 pl-6">
+          <p className="text-slate-400 font-light max-w-sm text-sm leading-relaxed border-l-0 md:border-l border-white/10 pl-0 md:pl-6 text-left">
             We help businesses elevate their value through custom software development, product design, and mission-critical consultancy.
           </p>
         </div>
@@ -96,21 +96,21 @@ export function TeamSection() {
                     </div>
                   </div>
 
-                  <div className="p-5 space-y-3">
+                  <div className="p-5 space-y-3 text-left">
                     <div>
-                      <h3 className="text-base font-bold text-white tracking-tight truncate">{member.name}</h3>
-                      <p className="text-[#4A89C8] text-[9px] font-black uppercase tracking-widest mt-0.5">
+                      <h3 className="text-base font-bold text-white tracking-tight truncate text-left">{member.name}</h3>
+                      <p className="text-[#4A89C8] text-[9px] font-black uppercase tracking-widest mt-0.5 text-left">
                         {member.role}
                       </p>
                     </div>
 
                     <div className="h-px w-full bg-white/5" />
 
-                    <p className="text-slate-500 text-[9px] font-mono leading-tight h-6 overflow-hidden">
+                    <p className="text-slate-500 text-[9px] font-mono leading-tight h-6 overflow-hidden text-left">
                       {member.credentials}
                     </p>
 
-                    <div className="flex gap-3 pt-1">
+                    <div className="flex gap-3 pt-1 justify-start">
                       <FaLinkedin className="w-3.5 h-3.5 text-slate-600 hover:text-white transition-colors cursor-pointer" />
                       <FaGithub className="w-3.5 h-3.5 text-slate-600 hover:text-white transition-colors cursor-pointer" />
                       <Mail className="w-3.5 h-3.5 text-slate-600 hover:text-white transition-colors cursor-pointer" />
@@ -126,14 +126,14 @@ export function TeamSection() {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="mt-20 p-10 rounded-[2.5rem] bg-white/[0.02] border border-white/5 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left max-w-7xl mx-auto"
+          className="mt-20 p-10 rounded-[2.5rem] bg-white/[0.02] border border-white/5 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 text-left max-w-7xl mx-auto"
         >
-          <div>
-            <h4 className="text-xl font-bold text-white mb-2 tracking-tight">Ready to expand your roadmap?</h4>
-            <p className="text-slate-500 text-sm font-light">Join the engineers building the next generation of global software.</p>
+          <div className="text-left">
+            <h4 className="text-xl font-bold text-white mb-2 tracking-tight text-left">Ready to expand your roadmap?</h4>
+            <p className="text-slate-500 text-sm font-light text-left">Join the engineers building the next generation of global software.</p>
           </div>
-          <Link href="/company-overview">
-            <button className="px-10 py-4 rounded-full bg-white text-black font-black text-[10px] uppercase tracking-widest hover:bg-[#4A89C8] hover:text-white transition-all shadow-xl">
+          <Link href="/company-overview" className="w-full md:w-auto">
+            <button className="w-full md:w-auto px-10 py-4 rounded-full bg-white text-black font-black text-[10px] uppercase tracking-widest hover:bg-[#4A89C8] hover:text-white transition-all shadow-xl">
               View Open Roles
             </button>
           </Link>

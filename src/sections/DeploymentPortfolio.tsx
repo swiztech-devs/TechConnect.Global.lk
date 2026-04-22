@@ -52,25 +52,25 @@ export function DeploymentPortfolio() {
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#4A89C8]/30 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <header className="mb-20 flex flex-col md:flex-row justify-between items-end gap-6">
+        <header className="mb-20 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-4"
+            className="space-y-4 text-left"
           >
-            <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tighter">
+            <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tighter text-left">
               Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4A89C8] to-white">scale.</span>
             </h2>
-            <p className="text-slate-400 text-lg max-w-md font-light leading-relaxed">
+            <p className="text-slate-400 text-lg max-w-md font-light leading-relaxed text-left">
               Proven digital infrastructures deployed for industry-leading organizations.
             </p>
           </motion.div>
           
-          <Link href="/our-projects">
+          <Link href="/our-projects" className="w-full md:w-auto">
             <motion.button 
               whileHover={{ x: 10 }}
-              className="flex items-center gap-4 text-white font-bold tracking-[0.2em] uppercase text-[10px] border-b border-[#4A89C8]/50 pb-2 transition-all group"
+              className="flex items-center gap-4 text-white font-bold tracking-[0.2em] uppercase text-[10px] border-b border-[#4A89C8]/50 pb-2 transition-all group text-left"
             >
               Explore Portfolio <ArrowRight className="w-4 h-4 text-[#4A89C8] group-hover:translate-x-2 transition-transform" />
             </motion.button>
@@ -88,9 +88,9 @@ export function DeploymentPortfolio() {
             <motion.div
               key={i}
               variants={projectVariants}
-              className="group relative"
+              className="group relative flex flex-col items-start text-left"
             >
-              <div className="relative aspect-[16/11] overflow-hidden rounded-[2.5rem] border border-white/10 bg-white shadow-2xl flex items-center justify-center p-12">
+              <div className="relative w-full aspect-[16/11] overflow-hidden rounded-[2.5rem] border border-white/10 bg-white shadow-2xl flex items-center justify-center p-12">
                 <motion.div 
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.6 }}
@@ -111,9 +111,9 @@ export function DeploymentPortfolio() {
                 </div>
               </div>
 
-              <div className="mt-8 space-y-3 px-2">
+              <div className="mt-8 space-y-3 px-2 w-full">
                 <div className="flex items-center justify-between">
-                  <span className="text-[#4A89C8] font-bold text-[10px] uppercase tracking-[0.4em]">
+                  <span className="text-[#4A89C8] font-bold text-[10px] uppercase tracking-[0.4em] text-left">
                     {project.category}
                   </span>
                   <div className="p-2 rounded-full bg-white/5 group-hover:bg-[#4A89C8]/20 transition-colors">
@@ -121,11 +121,11 @@ export function DeploymentPortfolio() {
                   </div>
                 </div>
                 
-                <h3 className="text-2xl font-bold text-white group-hover:text-[#4A89C8] transition-colors tracking-tight leading-tight">
+                <h3 className="text-2xl font-bold text-white group-hover:text-[#4A89C8] transition-colors tracking-tight leading-tight text-left">
                   {project.title}
                 </h3>
                 
-                <p className="text-slate-400 font-light text-sm leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">
+                <p className="text-slate-400 font-light text-sm leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all text-left">
                   {project.description}
                 </p>
               </div>

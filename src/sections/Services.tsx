@@ -61,14 +61,14 @@ export function Services() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-4"
+            className="space-y-4 text-left"
           >
-            <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tighter">
+            <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tighter text-left">
               The Four <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4A89C8] via-white to-[#4A89C8] bg-[length:200%_auto] animate-text-shimmer">
                 Service Pillars.
@@ -77,7 +77,7 @@ export function Services() {
           </motion.div>
           
           <motion.div 
-            className="text-slate-500 font-black tracking-[0.4em] uppercase text-[10px] pb-2 border-b border-white/10"
+            className="text-slate-500 font-black tracking-[0.4em] uppercase text-[10px] pb-2 border-b border-white/10 text-left md:text-right w-full md:w-auto"
           >
             // Systems Architecture
           </motion.div>
@@ -108,24 +108,24 @@ export function Services() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020314] via-[#020314]/80 to-[#020314]/40" />
               </div>
 
-              <div className="relative z-10 flex flex-col h-full">
+              <div className="relative z-10 flex flex-col h-full items-start text-left">
                 <div className="mb-auto">
                   <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white backdrop-blur-xl group-hover:border-[#4A89C8]/50 group-hover:bg-[#4A89C8]/10 transition-all duration-500">
                     {service.icon}
                   </div>
                 </div>
 
-                <div className="mt-8 space-y-4">
-                  <h3 className="text-3xl font-bold text-white tracking-tight group-hover:text-[#4A89C8] transition-colors">
+                <div className="mt-8 space-y-4 w-full">
+                  <h3 className="text-3xl font-bold text-white tracking-tight group-hover:text-[#4A89C8] transition-colors text-left">
                     {service.title}
                   </h3>
                   
-                  <p className="text-slate-400 font-light leading-relaxed text-sm opacity-80 group-hover:opacity-100 transition-opacity">
+                  <p className="text-slate-400 font-light leading-relaxed text-sm opacity-80 group-hover:opacity-100 transition-opacity text-left">
                     {service.description}
                   </p>
 
-                  <div className="pt-6 flex items-center justify-between border-t border-white/5 mt-6">
-                    <span className="text-[9px] uppercase tracking-[0.3em] text-[#4A89C8] font-black">
+                  <div className="pt-6 flex items-center justify-between border-t border-white/5 mt-6 w-full">
+                    <span className="text-[9px] uppercase tracking-[0.3em] text-[#4A89C8] font-black text-left">
                       {service.specs}
                     </span>
                     <div className="p-2 rounded-full bg-white/5 group-hover:bg-[#4A89C8] transition-all duration-500">
